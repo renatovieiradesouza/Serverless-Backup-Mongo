@@ -1,0 +1,62 @@
+inputs:
+  - type: "cloudwatch-logs"
+    id: "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-simulation-range"
+    outputs:
+      - type: "elasticsearch"
+        args:
+          # either elasticsearch_url or cloud_id, elasticsearch_url takes precedence
+          #elasticsearch_url: "http(s)://domain.tld:port"
+          cloud_id: "AWS_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRmZjBmNDBlNTVmMzY0MWYwYWI2NTg5ODNmN2E4ODllNCRlZmE5NDQ1NWZlZmI0YWIxYWYzOGQ4ZmQ5MDFkOTY3Yw=="
+          # either api_key or username/password, api_key takes precedence
+          api_key: "WVloZ2Q0RUJkc2U2blBvVEN4Tk86WDIxWXg1X1FSaDJfRlJlQnc2c2QyQQ=="
+          #username: "username"
+          #password: "password"
+          es_datastream_name: "development"
+          batch_max_actions: 500
+          batch_max_bytes: 10485760
+  # - type: "s3-sqs"
+  #   id: "arn:aws:sqs:us-east-1:539226003299:vpc-flow-logs-sqs-dev"
+  #   outputs:
+  #     - type: "elasticsearch"
+  #       args:
+  #         # either elasticsearch_url or cloud_id, elasticsearch_url takes precedence
+  #         #elasticsearch_url: "http(s)://domain.tld:port"
+  #         cloud_id: "AWS_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRmZjBmNDBlNTVmMzY0MWYwYWI2NTg5ODNmN2E4ODllNCRlZmE5NDQ1NWZlZmI0YWIxYWYzOGQ4ZmQ5MDFkOTY3Yw=="
+  #         # either api_key or username/password, api_key takes precedence
+  #         api_key: "WVloZ2Q0RUJkc2U2blBvVEN4Tk86WDIxWXg1X1FSaDJfRlJlQnc2c2QyQQ=="
+  #         #username: "username"
+  #         #password: "password"
+  #         es_datastream_name: "logs-vpc-flow-aws"
+  #         batch_max_actions: 500
+  #         batch_max_bytes: 10485760
+  # - type: "sqs"
+  #   id: "arn:aws:sqs:us-east-1:539226003299:FlowVPCLogs"
+  #   outputs:
+  #     - type: "elasticsearch"
+  #       args:
+  #         # either elasticsearch_url or cloud_id, elasticsearch_url takes precedence
+  #         elasticsearch_url: "http(s)://domain.tld:port"
+  #         cloud_id: "cloud_id:bG9jYWxob3N0OjkyMDAkMA=="
+  #         # either api_key or username/password, api_key takes precedence
+  #         api_key: "YXBpX2tleV9pZDphcGlfa2V5X3NlY3JldAo="
+  #         username: "username"
+  #         password: "password"
+  #         es_datastream_name: "logs-generic-default"
+  #         batch_max_actions: 500
+  #         batch_max_bytes: 10485760
+  # - type: "kinesis-data-stream"
+  #   id: "arn:aws:kinesis:%REGION%:%ACCOUNT%:stream/%STREAMNAME%"
+  #   outputs:
+  #     - type: "elasticsearch"
+  #       args:
+  #         # either elasticsearch_url or cloud_id, elasticsearch_url takes precedence
+  #         elasticsearch_url: "http(s)://domain.tld:port"
+  #         cloud_id: "cloud_id:bG9jYWxob3N0OjkyMDAkMA=="
+  #         # either api_key or username/password, api_key takes precedence
+  #         api_key: "YXBpX2tleV9pZDphcGlfa2V5X3NlY3JldAo="
+  #         username: "username"
+  #         password: "password"
+  #         es_datastream_name: "logs-generic-default"
+  #         batch_max_actions: 500
+  #         batch_max_bytes: 10485760
+#ElasticServerlessForwarderFunctionRolePolicyCloudWatchLambda
