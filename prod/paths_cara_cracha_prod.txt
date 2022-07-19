@@ -1,0 +1,16 @@
+/aws/lambda/cara-cracha-prod-analyze-id-back
+/aws/lambda/cara-cracha-prod-analyze-id-front
+/aws/lambda/cara-cracha-prod-analyze-payslip
+/aws/lambda/cara-cracha-prod-process-address
+/aws/lambda/cara-cracha-prod-process-id-back
+/aws/lambda/cara-cracha-prod-process-id-front
+/aws/lambda/cara-cracha-prod-process-payslip
+/aws/lambda/cara-cracha-prod-analyze-address
+
+Quantidade de registros por grupo
+egrep -c "\"logGroupName\": \"/aws/lambda/cara-cracha-.*" log.json
+
+egrep "\"logGroupName\": \"/aws/lambda/cara-cracha-.*" log.json | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /'>
+egrep "\"logGroupName\": \"/aws/lambda/condo-loan-asyc-.*" log.json | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /'>
+
+cat prod/functionbeat-prod-caracracha2.yml | sed 's/     #start config/     #start config\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-analyze-address\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-analyze-id-back\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-analyze-id-front\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-analyze-payslip\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-process-address\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-process-id-back\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-process-id-front\n      - log_group_name: \/aws\/lambda\/cara-cracha-prod-process-payslip\n/'

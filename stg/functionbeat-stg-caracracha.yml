@@ -20,12 +20,12 @@ functionbeat.provider.aws.deploy_bucket: "elk-condolivre-stg"
 functionbeat.provider.aws.functions:
   # Define the list of function availables, each function required to have a unique name.
   # Create a function that accepts events coming from cloudwatchlogs.
-  - name: elkthawk
+  - name: elkcara
     enabled: true
     type: cloudwatch_logs
 
     # Description of the method to help identify them when you run multiples functions.
-    description: "Função lambda para capturar log das funções da conta de staging tonyhawk"
+    description: "Função lambda para capturar log das funções da conta de dev townhall"
 
     # Concurrency, is the reserved number of instances for that function.
     # Default is 5.
@@ -56,14 +56,14 @@ functionbeat.provider.aws.functions:
 
     # List of cloudwatch log group registered to that function.
     triggers:
-      - log_group_name: /aws/lambda/tonyhawk-staging-add-comment
-      - log_group_name: /aws/lambda/tonyhawk-staging-card-move-webhook
-      - log_group_name: /aws/lambda/tonyhawk-staging-create-card
-      - log_group_name: /aws/lambda/tonyhawk-staging-delete-card
-      - log_group_name: /aws/lambda/tonyhawk-staging-delete-comment
-      - log_group_name: /aws/lambda/tonyhawk-staging-move-phase
-      - log_group_name: /aws/lambda/tonyhawk-staging-process-action
-      - log_group_name: /aws/lambda/tonyhawk-staging-update-card
+     - log_group_name: /aws/lambda/cara-cracha-stg-analyze-id-back
+     - log_group_name: /aws/lambda/cara-cracha-stg-analyze-id-front
+     - log_group_name: /aws/lambda/cara-cracha-stg-analyze-payslip
+     - log_group_name: /aws/lambda/cara-cracha-stg-process-address
+     - log_group_name: /aws/lambda/cara-cracha-stg-process-id-back
+     - log_group_name: /aws/lambda/cara-cracha-stg-process-id-front
+     - log_group_name: /aws/lambda/cara-cracha-stg-process-payslip
+     - log_group_name: /aws/lambda/cara-cracha-stg-analyze-address
 
     # Define custom processors for this function.
     #processors:

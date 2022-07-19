@@ -135,13 +135,13 @@
 # # Set to false to disable template loading.
 # #setup.template.enabled: true
 
-# # Template name. By default the template name is "functionbeat-%{[agent.version]}"
+# # Template name. By default the template name is "functionbeat"
 # # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-# setup.template.name: "development-%{[agent.version]}"
+# setup.template.name: "development"
 
-# # Template pattern. By default the template pattern is "functionbeat-%{[agent.version]}" to apply to the default index settings.
+# # Template pattern. By default the template pattern is "functionbeat" to apply to the default index settings.
 # # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-# setup.template.pattern: "development-%{[agent.version]}"
+# setup.template.pattern: "development"
 
 # # Path to fields.yml file to generate the template
 # #setup.template.fields: "${path.config}/fields.yml"
@@ -231,7 +231,7 @@
 #   #username: "elastic"
 #   #password: "changeme"
 
-#   index: "development-%{[agent.version]}"
+#   index: "development"
 
 # # ------------------------------ Logstash Output -------------------------------
 # #output.logstash:

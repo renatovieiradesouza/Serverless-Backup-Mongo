@@ -15,17 +15,17 @@
 # Configure which S3 endpoint should we use.
 functionbeat.provider.aws.endpoint: "s3.amazonaws.com"
 # Configure which S3 bucket we should upload the lambda artifact.
-functionbeat.provider.aws.deploy_bucket: "elk-condolivre-stg"
+functionbeat.provider.aws.deploy_bucket: "elk-condolivre-dev"
 
 functionbeat.provider.aws.functions:
   # Define the list of function availables, each function required to have a unique name.
   # Create a function that accepts events coming from cloudwatchlogs.
-  - name: elkthawk
+  - name: elkcracha
     enabled: true
     type: cloudwatch_logs
 
     # Description of the method to help identify them when you run multiples functions.
-    description: "Função lambda para capturar log das funções da conta de staging tonyhawk"
+    description: "Função lambda para capturar log das funções da conta de dev townhall"
 
     # Concurrency, is the reserved number of instances for that function.
     # Default is 5.
@@ -52,18 +52,16 @@ functionbeat.provider.aws.functions:
     # output. Fields can be scalar values, arrays, dictionaries, or any nested
     # combination of these.
     fields:
-      env: staging
+      env: development
 
     # List of cloudwatch log group registered to that function.
     triggers:
-      - log_group_name: /aws/lambda/tonyhawk-staging-add-comment
-      - log_group_name: /aws/lambda/tonyhawk-staging-card-move-webhook
-      - log_group_name: /aws/lambda/tonyhawk-staging-create-card
-      - log_group_name: /aws/lambda/tonyhawk-staging-delete-card
-      - log_group_name: /aws/lambda/tonyhawk-staging-delete-comment
-      - log_group_name: /aws/lambda/tonyhawk-staging-move-phase
-      - log_group_name: /aws/lambda/tonyhawk-staging-process-action
-      - log_group_name: /aws/lambda/tonyhawk-staging-update-card
+     - log_group_name: /aws/lambda/cara-cracha-dev-analyze-address
+     - log_group_name: /aws/lambda/cara-cracha-dev-analyze-id-back
+     - log_group_name: /aws/lambda/cara-cracha-dev-analyze-id-front
+     - log_group_name: /aws/lambda/cara-cracha-dev-process-address
+     - log_group_name: /aws/lambda/cara-cracha-dev-process-id-back
+     - log_group_name: /aws/lambda/cara-cracha-dev-process-id-front
 
     # Define custom processors for this function.
     #processors:
@@ -131,11 +129,11 @@ functionbeat.provider.aws.functions:
 
 # Template name. By default the template name is "functionbeat"
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.name: "staging"
+setup.template.name: "development"
 
 # Template pattern. By default the template pattern is "functionbeat" to apply to the default index settings.
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.pattern: "staging"
+setup.template.pattern: "development"
 
 # Path to fields.yml file to generate the template
 #setup.template.fields: "${path.config}/fields.yml"
@@ -225,7 +223,7 @@ output.elasticsearch:
   #username: "elastic"
   #password: "changeme"
 
-  index: "staging"
+  index: "development"
 
 # ------------------------------ Logstash Output -------------------------------
 #output.logstash:
