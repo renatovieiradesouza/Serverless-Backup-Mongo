@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "file:///c%3A/Users/renat/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+        "https://json.schemastore.org/yamllint.json": "file://wsl.localhost/Ubuntu-20.04/home/renato/projeto/condo/elkondo/temp/202207190338/elkothers.yml"
+    }
+}
