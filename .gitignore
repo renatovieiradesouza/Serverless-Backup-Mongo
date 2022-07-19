@@ -1,5 +1,5 @@
 #Functionbeat application
-functionbeat-8.3.2-linux-x86_64.tar.gz
+functionbeat-8.3.2-*
 functionbeat
 pkg/
 new/
