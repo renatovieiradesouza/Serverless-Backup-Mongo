@@ -15,7 +15,7 @@
 # Configure which S3 endpoint should we use.
 functionbeat.provider.aws.endpoint: "s3.amazonaws.com"
 # Configure which S3 bucket we should upload the lambda artifact.
-functionbeat.provider.aws.deploy_bucket: "elk-condo-dev"
+functionbeat.provider.aws.deploy_bucket: "elk-condolivre-dev"
 
 functionbeat.provider.aws.functions:
   # Define the list of function availables, each function required to have a unique name.
@@ -56,13 +56,16 @@ functionbeat.provider.aws.functions:
 
     # List of cloudwatch log group registered to that function.
     triggers:
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-address-ocr-finished
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-banker-document-update
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-check-expired-order
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-company-moved
-      - log_group_name: /aws/lambda/condo-loan-asyc-dev-employee-moved
-      - log_group_name: /aws/lambda/condo-loan-asyc-dev-banker-document-update
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-employee-rescision
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-export-bankslip-file
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-export-bankslip-file-on-adm
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-generate-bankslip-on-condo
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-generate-insurance
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-id-ocr-finished
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-notify-external-lead
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-notify-pending-approval
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-bankslip-on-adm
@@ -70,8 +73,11 @@ functionbeat.provider.aws.functions:
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-conciliation
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-conciliation-on-adm
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-individual-bankslip-on-adm
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-settlements
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-process-usebens-conciliation
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-request-ccbs
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-send-pending-approval
+      - log_group_name: /aws/lambda/condo-loan-asyc-dev-send-usebens-conciliation
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-update-bankslip
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-update-bankslip-metadata
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-update-loan
@@ -140,13 +146,13 @@ functionbeat.provider.aws.functions:
 # Set to false to disable template loading.
 #setup.template.enabled: true
 
-# Template name. By default the template name is "functionbeat-%{[agent.version]}"
+# Template name. By default the template name is "functionbeat"
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.name: "development-%{[agent.version]}"
+setup.template.name: "development"
 
-# Template pattern. By default the template pattern is "functionbeat-%{[agent.version]}" to apply to the default index settings.
+# Template pattern. By default the template pattern is "functionbeat" to apply to the default index settings.
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.pattern: "development-%{[agent.version]}"
+setup.template.pattern: "development"
 
 # Path to fields.yml file to generate the template
 #setup.template.fields: "${path.config}/fields.yml"
@@ -214,10 +220,10 @@ setup.kibana:
 # The cloud.id setting overwrites the `output.elasticsearch.hosts` and
 # `setup.kibana.host` options.
 # You can find the `cloud.id` in the Elastic Cloud web UI.
-cloud.id: "AWS_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRmZjBmNDBlNTVmMzY0MWYwYWI2NTg5ODNmN2E4ODllNCRlZmE5NDQ1NWZlZmI0YWIxYWYzOGQ4ZmQ5MDFkOTY3Yw=="
+cloud.id: "ELK_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ5Y2ExOGQ0Nzk2YzY0MmYyOWU5ZTczY2E1ZTcwYjgwZSQ5YWIyNDFiMjBhNzg0MTMwOGM2ZTJhNGQ4ODZlMzUwYQ=="
 # The cloud.auth setting overwrites the `output.elasticsearch.username` and
 # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
-cloud.auth: "elastic:WadYwT1zCJFo4VCuzJfUHCQq"
+cloud.auth: "elastic:H8rE2xkLwEuT8VZTueStdQbL"
 
 # ================================== Outputs ===================================
 
@@ -236,7 +242,7 @@ output.elasticsearch:
   #username: "elastic"
   #password: "changeme"
 
-  index: "development-%{[agent.version]}"
+  index: "development"
 
 # ------------------------------ Logstash Output -------------------------------
 #output.logstash:

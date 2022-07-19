@@ -15,7 +15,7 @@
 # Configure which S3 endpoint should we use.
 functionbeat.provider.aws.endpoint: "s3.amazonaws.com"
 # Configure which S3 bucket we should upload the lambda artifact.
-functionbeat.provider.aws.deploy_bucket: "elk-qi-tech-dev"
+functionbeat.provider.aws.deploy_bucket: "elk-condolivre-dev"
 
 functionbeat.provider.aws.functions:
   # Define the list of function availables, each function required to have a unique name.
@@ -65,7 +65,7 @@ functionbeat.provider.aws.functions:
       - log_group_name: /aws/lambda/qi-tech-dev-refinance
       - log_group_name: /aws/lambda/qi-tech-dev-sign
       - log_group_name: /aws/lambda/qi-tech-dev-simulation
-      #- log_group_name: /aws/lambda/qi-tech-dev-simulation-range
+      - log_group_name: /aws/lambda/qi-tech-dev-simulation-range
       - log_group_name: /aws/lambda/qi-tech-dev-update-credit-policy
       - log_group_name: /aws/lambda/qi-tech-dev-webhook
       - log_group_name: /aws/lambda/qi-tech-public-dev-webhook
@@ -134,13 +134,13 @@ functionbeat.provider.aws.functions:
 # Set to false to disable template loading.
 #setup.template.enabled: true
 
-# Template name. By default the template name is "functionbeat-%{[agent.version]}"
+# Template name. By default the template name is "functionbeat"
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.name: "development-%{[agent.version]}"
+setup.template.name: "development"
 
-# Template pattern. By default the template pattern is "functionbeat-%{[agent.version]}" to apply to the default index settings.
+# Template pattern. By default the template pattern is "functionbeat" to apply to the default index settings.
 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
-setup.template.pattern: "development-%{[agent.version]}"
+setup.template.pattern: "development"
 
 # Path to fields.yml file to generate the template
 #setup.template.fields: "${path.config}/fields.yml"
@@ -208,10 +208,10 @@ setup.kibana:
 # The cloud.id setting overwrites the `output.elasticsearch.hosts` and
 # `setup.kibana.host` options.
 # You can find the `cloud.id` in the Elastic Cloud web UI.
-cloud.id: "AWS_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRmZjBmNDBlNTVmMzY0MWYwYWI2NTg5ODNmN2E4ODllNCRlZmE5NDQ1NWZlZmI0YWIxYWYzOGQ4ZmQ5MDFkOTY3Yw=="
+cloud.id: "ELK_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ5Y2ExOGQ0Nzk2YzY0MmYyOWU5ZTczY2E1ZTcwYjgwZSQ5YWIyNDFiMjBhNzg0MTMwOGM2ZTJhNGQ4ODZlMzUwYQ=="
 # The cloud.auth setting overwrites the `output.elasticsearch.username` and
 # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
-cloud.auth: "elastic:WadYwT1zCJFo4VCuzJfUHCQq"
+cloud.auth: "elastic:H8rE2xkLwEuT8VZTueStdQbL"
 
 # ================================== Outputs ===================================
 
@@ -230,7 +230,7 @@ output.elasticsearch:
   #username: "elastic"
   #password: "changeme"
 
-  index: "development-%{[agent.version]}"
+  index: "development"
 
 # ------------------------------ Logstash Output -------------------------------
 #output.logstash:
