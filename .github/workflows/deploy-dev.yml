@@ -30,6 +30,10 @@ jobs:
           ls -R temp
           cat temp/cara-c/file.txt
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/temp
+
       - name: Generate files
         run: | 
           chmod +x elkondo_generate.sh
