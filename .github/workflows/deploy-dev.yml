@@ -1,4 +1,4 @@
-name: Deploy Development
+name: Deploy Elasticsearch
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - elkondo*
 
 jobs:
-  deploy-ecs-dev:
+  deploy-elastic-search:
     runs-on: ubuntu-latest
     env:
       SERVICE_NAME: dev-${{ github.event.repository.name }}
@@ -19,15 +19,15 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-          aws-region: ${{ secrets.AWS_REGION_DEV }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{ secrets.AWS_REGION_PROD }}
 
       # - name: Set vars
       #   id: vars
       #   run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
-      - name: Upload Swagger Application Swagger UI
+      - name: Deploy elasticsearch
         run:  |
           echo "ola"
           aws s3 ls
