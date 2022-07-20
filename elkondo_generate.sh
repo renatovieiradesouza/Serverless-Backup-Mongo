@@ -79,6 +79,6 @@ output.elasticsearch:
   index: \"${index}\"
 processors:
   - add_host_metadata: ~
-  - add_cloud_metadata: ~ " > temp/backup/"elk"$name_log_group.yml
+  - add_cloud_metadata: ~ " > temp/$date_last_implementd/"elk"$name_log_group.yml
 done
 
