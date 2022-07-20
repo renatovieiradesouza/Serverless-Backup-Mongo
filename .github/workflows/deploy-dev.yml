@@ -22,10 +22,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
           aws-region: ${{ secrets.AWS_REGION_DEV }}
-          bucket: ${{ BUCKET_DEV }}
-          cloudid: ${{ CLOUDID }}
-          elasticuser: ${{ ELASTICUSER }}
-          index: "dev"
 
       - name: Prepare files
         run: | 
@@ -40,6 +36,11 @@ jobs:
           key: ${{ runner.os }}-elkondo
 
       - name: Generate files
+        env:
+          bucket: ${{ secrets.BUCKET_DEV }}
+          cloudid: ${{ secrets.CLOUDID }}
+          elasticuser: ${{ secrets.ELASTICUSER }}
+          index: "dev"
         run: | 
           chmod +x elkondo_generate.sh
           ./elkondo_generate.sh $bucket $index $cloudid $elasticuser
