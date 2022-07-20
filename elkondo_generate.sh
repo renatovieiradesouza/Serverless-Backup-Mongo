@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -v
+
 #  cada novo deploy, valida se já foi implanted, caso não, segue toda esteira
 #  caso já tenha sido. roda update
 
