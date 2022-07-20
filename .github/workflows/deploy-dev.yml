@@ -22,21 +22,25 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
           aws-region: ${{ secrets.AWS_REGION_DEV }}
+  
+      - name: Cache Primes
+        id: cache-primes
+        uses: actions/cache@v3
+        with:
+          path: prime-numbers
+          key: ${{ runner.os }}-primes
 
       - name: Prepare files
         run: | 
           chmod +x elkondo_prepare.sh
-          ./elkondo_prepare.sh
+          ./elkondo_prepare.sh -d prime-numbers
           ls -R temp
           cat temp/cara-c/file.txt
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/temp
 
       - name: Generate files
         run: | 
           chmod +x elkondo_generate.sh
+          cd prime-numbers
           pwd
           ls
           #./elkondo_generate.sh elk-condolivre-prod production ELK_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ5Y2ExOGQ0Nzk2YzY0MmYyOWU5ZTczY2E1ZTcwYjgwZSQ5YWIyNDFiMjBhNzg0MTMwOGM2ZTJhNGQ4ODZlMzUwYQ== elastic:H8rE2xkLwEuT8VZTueStdQbL
