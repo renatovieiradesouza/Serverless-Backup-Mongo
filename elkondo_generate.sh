@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -v
+set -x
 
 #  cada novo deploy, valida se já foi implanted, caso não, segue toda esteira
 #  caso já tenha sido. roda update
@@ -24,7 +24,7 @@ echo "#######################"
 echo
 echo "#Bucket exist?"
 bucket_test=`aws s3 ls | egrep "elk-condolivre-prod" | awk '{print $3}'`
-if [ ${bucket_test} = ${bucket} ]; then
+if [ "${bucket_test}" = "${bucket}" ]; then
     echo "yes"
 else
     echo "no, stop now!"
@@ -80,6 +80,6 @@ output.elasticsearch:
   index: \"${index}\"
 processors:
   - add_host_metadata: ~
-  - add_cloud_metadata: ~ " > temp/$date_last_implementd/"elk"$name_log_group.yml
+  - add_cloud_metadata: ~ " > temp/backup/"elk"$name_log_group.yml
 done
 
