@@ -6,7 +6,51 @@ on:
       - elkondo*
 
 jobs:
-  deploy-elastic-search:
+  deploy-elastic-search-dev:
+    runs-on: ubuntu-latest
+    env:
+      SERVICE_NAME: dev-${{ github.event.repository.name }}
+      CLUSTER: dev-cluster
+      ENVIRONMENT: dev
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+          aws-region: ${{ secrets.AWS_REGION_DEV }}
+
+      - name: Deploy Elasticsearch DEV
+        run:  |
+          echo "DEV"
+          aws s3 ls
+
+  deploy-elastic-search-stg:
+    runs-on: ubuntu-latest
+    env:
+      SERVICE_NAME: dev-${{ github.event.repository.name }}
+      CLUSTER: dev-cluster
+      ENVIRONMENT: dev
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
+          aws-region: ${{ secrets.AWS_REGION_STG }}
+
+      - name: Deploy Elasticsearch STG
+        run:  |
+          echo "STG"
+          aws s3 ls
+
+  deploy-elastic-search-prod:
     runs-on: ubuntu-latest
     env:
       SERVICE_NAME: dev-${{ github.event.repository.name }}
@@ -23,11 +67,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
           aws-region: ${{ secrets.AWS_REGION_PROD }}
 
-      # - name: Set vars
-      #   id: vars
-      #   run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-
-      - name: Deploy elasticsearch
+      - name: Deploy Elasticsearch PROD
         run:  |
-          echo "ola"
+          echo "PROD"
           aws s3 ls
