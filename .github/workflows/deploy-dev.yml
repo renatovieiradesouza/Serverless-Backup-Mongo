@@ -25,7 +25,7 @@ jobs:
           bucket: ${{ secrets.BUCKET_DEV }}
           cloudid: ${{ secrets.CLOUDID }}
           elasticuser: ${{ secrets.ELASTICUSER }}
-          index: ${{ dev }}
+          index: "dev"
 
       - name: Prepare files
         run: | 
