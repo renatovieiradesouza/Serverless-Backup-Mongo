@@ -25,7 +25,10 @@ jobs:
 
       - name: Prepare files
         run: | 
-          echo "Prepare"
+          chmod +x elkondo_prepare.sh
+          ./elkondo_prepare.sh
+          ls -R temp
+          cat temp/cara-c/file.txt
 
       - name: Generate files
         run: | 
