@@ -13,9 +13,9 @@ elasticuser=$4 #elastic:H8rE2xkLwEuT8VZTueStdQbL
 
 
 count_log_groups_for_implement=`find temp -name "file.txt" | wc -l`
-date_last_implementd=`date +'%F-%H%M%S'`
-echo $date_last_implementd
-mkdir -p temp/$date_last_implementd
+#date_last_implementd=`date +'%F-%H%M%S'`
+#echo $date_last_implementd
+mkdir -p temp/backup
 
 echo
 echo "#######################"
