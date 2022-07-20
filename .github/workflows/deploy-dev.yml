@@ -40,7 +40,6 @@ jobs:
       - name: Generate files
         run: | 
           chmod +x elkondo_generate.sh
-          cd prime-numbers
           pwd
           ls
           #./elkondo_generate.sh elk-condolivre-prod production ELK_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ5Y2ExOGQ0Nzk2YzY0MmYyOWU5ZTczY2E1ZTcwYjgwZSQ5YWIyNDFiMjBhNzg0MTMwOGM2ZTJhNGQ4ODZlMzUwYQ== elastic:H8rE2xkLwEuT8VZTueStdQbL
