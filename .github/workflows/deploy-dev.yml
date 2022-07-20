@@ -22,13 +22,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
           aws-region: ${{ secrets.AWS_REGION_DEV }}
-  
-      - name: Cache Primes
-        id: cache-primes
-        uses: actions/cache@v3
-        with:
-          path: prime-numbers
-          key: ${{ runner.os }}-primes
 
       - name: Prepare files
         run: | 
@@ -36,6 +29,11 @@ jobs:
           ./elkondo_prepare.sh -d prime-numbers
           ls -R temp
           cat temp/cara-c/file.txt
+
+      - uses: actions/cache@v3
+        with:
+          path: temp/
+          key: ${{ runner.os }}-elkondo
 
       - name: Generate files
         run: | 
