@@ -25,49 +25,53 @@ jobs:
 
       - name: Deploy Elasticsearch DEV
         run:  |
-          echo "DEV"
-          aws s3 ls
+          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
+          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
+          cd functionbeat-8.3.2-linux-x86_64
+          ls
+          chmod +x functionbeat
+          ./functionbeat version
 
-  deploy-elastic-search-stg:
-    runs-on: ubuntu-latest
-    env:
-      SERVICE_NAME: dev-${{ github.event.repository.name }}
-      CLUSTER: dev-cluster
-      ENVIRONMENT: dev
+  # deploy-elastic-search-stg:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     SERVICE_NAME: dev-${{ github.event.repository.name }}
+  #     CLUSTER: dev-cluster
+  #     ENVIRONMENT: dev
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
-          aws-region: ${{ secrets.AWS_REGION_STG }}
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
+  #         aws-region: ${{ secrets.AWS_REGION_STG }}
 
-      - name: Deploy Elasticsearch STG
-        run:  |
-          echo "STG"
-          aws s3 ls
+  #     - name: Deploy Elasticsearch STG
+  #       run:  |
+  #         echo "STG"
+  #         aws s3 ls
 
-  deploy-elastic-search-prod:
-    runs-on: ubuntu-latest
-    env:
-      SERVICE_NAME: dev-${{ github.event.repository.name }}
-      CLUSTER: dev-cluster
-      ENVIRONMENT: dev
+  # deploy-elastic-search-prod:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     SERVICE_NAME: dev-${{ github.event.repository.name }}
+  #     CLUSTER: dev-cluster
+  #     ENVIRONMENT: dev
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-          aws-region: ${{ secrets.AWS_REGION_PROD }}
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+  #         aws-region: ${{ secrets.AWS_REGION_PROD }}
 
-      - name: Deploy Elasticsearch PROD
-        run:  |
-          echo "PROD"
-          aws s3 ls
+  #     - name: Deploy Elasticsearch PROD
+  #       run:  |
+  #         echo "PROD"
+  #         aws s3 ls
