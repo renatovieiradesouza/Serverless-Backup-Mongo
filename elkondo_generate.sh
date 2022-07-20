@@ -23,7 +23,7 @@ echo "##Check before start##"
 echo "#######################"
 echo
 echo "#Bucket exist?"
-bucket_test=`aws s3 ls | egrep "elk-condolivre-dev" | awk '{print $3}'`
+bucket_test=`aws s3 ls | egrep "${bucket}" | awk '{print $3}'`
 if [ "${bucket_test}" = "${bucket}" ]; then
     echo "yes"
 else
