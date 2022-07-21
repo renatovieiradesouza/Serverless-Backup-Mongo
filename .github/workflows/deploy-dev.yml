@@ -26,7 +26,7 @@ jobs:
       - name: Prepare files
         run: | 
           chmod +x elkondo_prepare.sh
-          ./elkondo_prepare.sh -d prime-numbers
+          ./elkondo_prepare.sh -d elkondo
 
       - uses: actions/cache@v3
         with:
@@ -42,6 +42,7 @@ jobs:
         run: | 
           chmod +x elkondo_generate.sh
           ./elkondo_generate.sh $bucket $index $cloudid $elasticuser
+          ls temp/2022*
 
       - name: Deploy Elasticsearch DEV
         run: | 
