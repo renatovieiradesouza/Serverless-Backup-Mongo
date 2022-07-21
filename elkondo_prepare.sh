@@ -49,7 +49,6 @@ get_log_group_lambdas_from_file(){
     echo "##################"
     echo 
     egrep "\"logGroupName\": \"/aws/lambda/${item}.*" log.json | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
 }
 
 #Get Others log groups
@@ -74,7 +73,6 @@ get_log_group_from_file_others(){
     echo 
     
     egrep 'logGroupName' log.json | sed 's/\"logGroupName\": \"\/aws\/lambda\/.*//' | sed -e "s/\"logGroupName\": \"${env_ecs_rule}.*//" | sed -e "s/\"logGroupName\": \"${env_ecs}.*//" | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /' |  sed '/^[[:space:]]*$/d' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
 
 }
 
@@ -99,7 +97,6 @@ get_log_group_ecs_from_file(){
     echo 
     
     egrep "\"logGroupName\": \"${env_ecs}-" log.json | sed 's/\"logGroupName\": \"\/aws\/lambda\/.*//' | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//'  | sed 's/            /      /' |  sed '/^[[:space:]]*$/d' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
 
 }
 
