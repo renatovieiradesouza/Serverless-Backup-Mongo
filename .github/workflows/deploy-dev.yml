@@ -27,12 +27,6 @@ jobs:
         run: | 
           chmod +x step1.sh
           ./step1.sh -d elkondo
-          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
-          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
-          cd functionbeat-8.3.2-linux-x86_64
-          ls
-          chmod +x functionbeat
-          ./functionbeat version
 
       - uses: actions/cache@v3
         with:
@@ -47,16 +41,16 @@ jobs:
           index: "development"
         run: | 
           chmod +x step2.sh
-          ./step2.sh $bucket $index $cloudid $elasticuser
-
-      - name: Deploy Elasticsearch DEV
-        run: | 
-          # curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
-          # tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
-          # cd functionbeat-8.3.2-linux-x86_64
-          # ls
-          # chmod +x functionbeat
-          # ./functionbeat version
+          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
+          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
+          cd functionbeat-8.3.2-linux-x86_64
+          mv pkg/ ../
+          mv functionbeat ../
+          cd ..
+          ls
+          chmod +x functionbeat
+          ./functionbeat version
+          #./step2.sh $bucket $index $cloudid $elasticuser
 
 
   # deploy-elastic-search-stg:
