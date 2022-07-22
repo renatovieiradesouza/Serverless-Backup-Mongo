@@ -47,10 +47,9 @@ jobs:
           mv pkg/ ../
           mv functionbeat ../
           cd ..
-          ls
           chmod +x functionbeat
           ./functionbeat version
-          #./step2.sh $bucket $index $cloudid $elasticuser
+          ./step2.sh $bucket $index $cloudid $elasticuser
 
 
   # deploy-elastic-search-stg:
