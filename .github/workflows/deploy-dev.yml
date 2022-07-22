@@ -25,8 +25,8 @@ jobs:
 
       - name: Prepare files
         run: | 
-          chmod +x elkondo_prepare.sh
-          ./elkondo_prepare.sh -d elkondo
+          chmod +x step1.sh
+          ./step1.sh -d elkondo
 
       - uses: actions/cache@v3
         with:
@@ -40,19 +40,8 @@ jobs:
           elasticuser: ${{ secrets.ELASTICUSER }}
           index: "development"
         run: | 
-          chmod +x elkondo_generate.sh
-          ./elkondo_generate.sh $bucket $index $cloudid $elasticuser
-          ls temp/2022*
-
-      - name: Deploy Elasticsearch DEV
-        run: | 
-          # curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
-          # tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
-          # cd functionbeat-8.3.2-linux-x86_64
-          # ls
-          # chmod +x functionbeat
-          # ./functionbeat version
-
+          chmod +x step2.sh
+          ./step2.sh $bucket $index $cloudid $elasticuser
 
   # deploy-elastic-search-stg:
   #   runs-on: ubuntu-latest
