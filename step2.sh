@@ -110,16 +110,16 @@ processors:
     if [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
         chmod +x functionbeat
         echo "Running update: $name_log_group"
-        ./temp/functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml
+        ./functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml
         #Verificar retorno com $? e notificar em caso de erro no teams
     elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
         chmod +x functionbeat
         echo "Running deploy: $name_log_group"
-        ./temp/functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+        ./functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
          #Verificar retorno com $? e notificar em caso de erro no teams    
     elif [ "${to_remove}" = "remove" ]; then
         echo "removendo $name_log_group"
-        ./temp/functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+        ./functionbeat-8.3.2-linux-x86_64/functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
     else
         echo "Nothing now"
     fi
