@@ -4,8 +4,6 @@
 env_ecs="dev"
 env_ecs_rule="dev" #Apply between stg and prod. For stg use staging and prod use production
 
-predefined_groups_lambdas=$(egrep "/aws/lambda/" log.json | sed 's/\"arn\".*//' | awk '{print $2}' | cut -c 12-20 | sort | uniq | sed 's/\///' | sed 's/ //' | sed 's/^[a-z]/"/' | sed 's/[a-z][\.-]$/"/' | sed 's/[a-z]$/"/' | sed 's/ //')
-
 #Functions
 
 get_log_group_from_aws_cli(){
@@ -13,7 +11,7 @@ get_log_group_from_aws_cli(){
     echo "Get all Logs from aws account"
     echo "##################"
     aws logs describe-log-groups > log.json
-
+    sleep 1
     #Checking file log.json is ok
     if [ ! -f log.json ]; then
 
@@ -104,6 +102,9 @@ get_log_group_ecs_from_file(){
 
 #Getin data from aws
 get_log_group_from_aws_cli
+
+#Organizing logs
+predefined_groups_lambdas=$(egrep "/aws/lambda/" log.json | sed 's/\"arn\".*//' | awk '{print $2}' | cut -c 12-20 | sort | uniq | sed 's/\///' | sed 's/ //' | sed 's/^[a-z]/"/' | sed 's/[a-z][\.-]$/"/' | sed 's/[a-z]$/"/' | sed 's/ //')
 
 #Getin log group lambdas
 for i in ${predefined_groups_lambdas[@]}
