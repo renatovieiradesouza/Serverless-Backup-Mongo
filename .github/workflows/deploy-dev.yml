@@ -47,9 +47,7 @@ jobs:
           index: "development"
         run: | 
           chmod +x step2.sh
-          ls
-          ls temp/
-          #./step2.sh $bucket $index $cloudid $elasticuser
+          ./step2.sh $bucket $index $cloudid $elasticuser
 
       - name: Deploy Elasticsearch DEV
         run: | 
