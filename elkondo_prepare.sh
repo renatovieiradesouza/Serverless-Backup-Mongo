@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Var devem vir do github variaveis
-env_ecs="prod"
-env_ecs_rule="production" #Apply between stg and prod. For stg use staging and prod use production
+env_ecs="dev"
+env_ecs_rule="dev" #Apply between stg and prod. For stg use staging and prod use production
 
 predefined_groups_lambdas=$(egrep "/aws/lambda/" log.json | sed 's/\"arn\".*//' | awk '{print $2}' | cut -c 12-20 | sort | uniq | sed 's/\///' | sed 's/ //' | sed 's/^[a-z]/"/' | sed 's/[a-z][\.-]$/"/' | sed 's/[a-z]$/"/' | sed 's/ //')
 

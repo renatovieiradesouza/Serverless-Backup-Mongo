@@ -38,7 +38,7 @@ jobs:
           bucket: ${{ secrets.BUCKET_DEV }}
           cloudid: ${{ secrets.CLOUDID }}
           elasticuser: ${{ secrets.ELASTICUSER }}
-          index: "dev"
+          index: "development"
         run: | 
           chmod +x elkondo_generate.sh
           ./elkondo_generate.sh $bucket $index $cloudid $elasticuser

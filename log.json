@@ -1,876 +1,1014 @@
 {
     "logGroups": [
         {
-            "logGroupName": "/aws/ecs/containerinsights/prod-cluster/performance",
-            "creationTime": 1623724538329,
+            "logGroupName": "/aws/ecs/containerinsights/dev-cluster/performance",
+            "creationTime": 1624902642379,
             "retentionInDays": 1,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/ecs/containerinsights/prod-cluster/performance:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/ecs/containerinsights/dev-cluster/performance:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-analyze-address",
-            "creationTime": 1657129260829,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-analyze-address",
+            "creationTime": 1657129810932,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-analyze-address:*",
-            "storedBytes": 297145
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-analyze-address:*",
+            "storedBytes": 72
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-analyze-id-back",
-            "creationTime": 1657045231133,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-analyze-id-back",
+            "creationTime": 1656989621645,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-analyze-id-back:*",
-            "storedBytes": 373370
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-analyze-id-back:*",
+            "storedBytes": 5240
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-analyze-id-front",
-            "creationTime": 1657129261032,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-analyze-id-front",
+            "creationTime": 1657129811100,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-analyze-id-front:*",
-            "storedBytes": 490154
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-analyze-id-front:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-analyze-payslip",
-            "creationTime": 1657306157304,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-process-address",
+            "creationTime": 1657129810955,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-analyze-payslip:*",
-            "storedBytes": 328967
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-process-address:*",
+            "storedBytes": 73
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-process-address",
-            "creationTime": 1657129261127,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-process-id-back",
+            "creationTime": 1657129810479,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-process-address:*",
-            "storedBytes": 1251109
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-process-id-back:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-process-id-back",
-            "creationTime": 1657129260911,
+            "logGroupName": "/aws/lambda/cara-cracha-dev-process-id-front",
+            "creationTime": 1657129810300,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-process-id-back:*",
-            "storedBytes": 413453
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/cara-cracha-dev-process-id-front:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-process-id-front",
-            "creationTime": 1657129260909,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-address-ocr-finished",
+            "creationTime": 1656685771982,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-process-id-front:*",
-            "storedBytes": 519338
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-address-ocr-finished:*",
+            "storedBytes": 1389
         },
         {
-            "logGroupName": "/aws/lambda/cara-cracha-prod-process-payslip",
-            "creationTime": 1657306157643,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-banker-document-update",
+            "creationTime": 1646934415736,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/cara-cracha-prod-process-payslip:*",
-            "storedBytes": 450181
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-banker-document-update:*",
+            "storedBytes": 36870
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-address-ocr-finished",
-            "creationTime": 1656425044956,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-check-expired-order",
+            "creationTime": 1648216332222,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-address-ocr-finished:*",
-            "storedBytes": 285371
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-check-expired-order:*",
+            "storedBytes": 2291
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-banker-document-update",
-            "creationTime": 1650290673557,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-company-moved",
+            "creationTime": 1653690196170,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-banker-document-update:*",
-            "storedBytes": 662936
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-company-moved:*",
+            "storedBytes": 24410
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-check-expired-order",
-            "creationTime": 1650290673680,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-employee-rescision",
+            "creationTime": 1655903598432,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-check-expired-order:*",
-            "storedBytes": 67280
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-employee-rescision:*",
+            "storedBytes": 120
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-company-moved",
-            "creationTime": 1653939200751,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-export-bankslip-file",
+            "creationTime": 1649955096131,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-company-moved:*",
-            "storedBytes": 22011
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-export-bankslip-file:*",
+            "storedBytes": 195
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-employee-rescision",
-            "creationTime": 1655767716332,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-export-bankslip-file-on-adm",
+            "creationTime": 1652965981812,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-employee-rescision:*",
-            "storedBytes": 186720
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-export-bankslip-file-on-adm:*",
+            "storedBytes": 20080
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-export-bankslip-file",
-            "creationTime": 1650290673563,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-generate-bankslip-on-condo",
+            "creationTime": 1654631230956,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-export-bankslip-file:*",
-            "storedBytes": 7971
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-generate-bankslip-on-condo:*",
+            "storedBytes": 5619
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-export-bankslip-file-on-adm",
-            "creationTime": 1653353622852,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-export-bankslip-file-on-adm:*",
-            "storedBytes": 174782
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-generate-insurance",
+            "creationTime": 1646843715907,
+            "metricFilterCount": 1,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-generate-insurance:*",
+            "storedBytes": 118186
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-generate-bankslip-on-condo",
-            "creationTime": 1654296525272,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-id-ocr-finished",
+            "creationTime": 1656685771593,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-generate-bankslip-on-condo:*",
-            "storedBytes": 69748
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-id-ocr-finished:*",
+            "storedBytes": 2188
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-generate-insurance",
-            "creationTime": 1650290674142,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-notify-external-lead",
+            "creationTime": 1648216331578,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-generate-insurance:*",
-            "storedBytes": 1256051
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-notify-external-lead:*",
+            "storedBytes": 73263
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-id-back-ocr-finished",
-            "creationTime": 1657035983419,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-notify-pending-approval",
+            "creationTime": 1650992393805,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-id-back-ocr-finished:*",
-            "storedBytes": 322294
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-notify-pending-approval:*",
+            "storedBytes": 25942
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-id-front-ocr-finished",
-            "creationTime": 1657035983236,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-bankslip-on-adm",
+            "creationTime": 1646843715701,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-id-front-ocr-finished:*",
-            "storedBytes": 373636
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-bankslip-on-adm:*",
+            "storedBytes": 192807
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-notify-external-lead",
-            "creationTime": 1650290674653,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-bankslips",
+            "creationTime": 1646843715913,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-notify-external-lead:*",
-            "storedBytes": 942329
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-bankslips:*",
+            "storedBytes": 36858
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-notify-pending-approval",
-            "creationTime": 1651515099918,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-conciliation",
+            "creationTime": 1648652595213,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-notify-pending-approval:*",
-            "storedBytes": 2448321
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-conciliation:*",
+            "storedBytes": 8860
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-payslip-ocr-finished",
-            "creationTime": 1657307141718,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-conciliation-on-adm",
+            "creationTime": 1648652595539,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-payslip-ocr-finished:*",
-            "storedBytes": 254771
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-conciliation-on-adm:*",
+            "storedBytes": 79152
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-bankslip-on-adm",
-            "creationTime": 1650290674140,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-individual-bankslip-on-adm",
+            "creationTime": 1653911203404,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-bankslip-on-adm:*",
-            "storedBytes": 201647
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-individual-bankslip-on-adm:*",
+            "storedBytes": 106
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-bankslips",
-            "creationTime": 1650290674006,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-settlements",
+            "creationTime": 1655134850541,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-bankslips:*",
-            "storedBytes": 8055
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-settlements:*",
+            "storedBytes": 102
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-conciliation",
-            "creationTime": 1650290673579,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-process-usebens-conciliation",
+            "creationTime": 1649955096947,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-conciliation:*",
-            "storedBytes": 8127
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-process-usebens-conciliation:*",
+            "storedBytes": 29474
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-conciliation-on-adm",
-            "creationTime": 1650290674274,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-request-ccbs",
+            "creationTime": 1654631231661,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-conciliation-on-adm:*",
-            "storedBytes": 175794
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-request-ccbs:*",
+            "storedBytes": 1950
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-individual-bankslip-on-adm",
-            "creationTime": 1653939201675,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-send-pending-approval",
+            "creationTime": 1654702370887,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-individual-bankslip-on-adm:*",
-            "storedBytes": 76359
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-send-pending-approval:*",
+            "storedBytes": 56205
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-settlements",
-            "creationTime": 1655131413601,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-send-usebens-conciliation",
+            "creationTime": 1656685772240,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-settlements:*",
-            "storedBytes": 67121
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-send-usebens-conciliation:*",
+            "storedBytes": 239
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-process-usebens-conciliation",
-            "creationTime": 1650290674022,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-update-bankslip",
+            "creationTime": 1646843728102,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-process-usebens-conciliation:*",
-            "storedBytes": 73819
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-update-bankslip:*",
+            "storedBytes": 274
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-request-ccbs",
-            "creationTime": 1654107547352,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-update-bankslip-metadata",
+            "creationTime": 1646843715795,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-request-ccbs:*",
-            "storedBytes": 99099
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-update-bankslip-metadata:*",
+            "storedBytes": 200
         },
         {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-send-pending-approval",
-            "creationTime": 1654890742028,
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-update-loan",
+            "creationTime": 1646843716031,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-send-pending-approval:*",
-            "storedBytes": 1856123
-        },
-        {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-send-usebens-conciliation",
-            "creationTime": 1656338950712,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-send-usebens-conciliation:*",
-            "storedBytes": 48223
-        },
-        {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-update-bankslip",
-            "creationTime": 1650290673575,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-update-bankslip:*",
-            "storedBytes": 4039048
-        },
-        {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-update-bankslip-metadata",
-            "creationTime": 1650290673655,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-update-bankslip-metadata:*",
-            "storedBytes": 3992875
-        },
-        {
-            "logGroupName": "/aws/lambda/condo-loan-asyc-production-update-loan",
-            "creationTime": 1650290673971,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/condo-loan-asyc-production-update-loan:*",
-            "storedBytes": 6228207
-        },
-        {
-            "logGroupName": "/aws/lambda/ec2_start",
-            "creationTime": 1656015454550,
-            "retentionInDays": 14,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/ec2_start:*",
-            "storedBytes": 5489
-        },
-        {
-            "logGroupName": "/aws/lambda/ec2_stop",
-            "creationTime": 1656015454535,
-            "retentionInDays": 14,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/ec2_stop:*",
-            "storedBytes": 5375
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/condo-loan-asyc-dev-update-loan:*",
+            "storedBytes": 2343003243
         },
         {
             "logGroupName": "/aws/lambda/elkcara",
-            "creationTime": 1658041595025,
+            "creationTime": 1658514157164,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkcara:*",
-            "storedBytes": 351886
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkcara:*",
+            "storedBytes": 0
         },
         {
             "logGroupName": "/aws/lambda/elkcondo",
-            "creationTime": 1658264640013,
+            "creationTime": 1658514381962,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkcondo:*",
-            "storedBytes": 49852
-        },
-        {
-            "logGroupName": "/aws/lambda/elkgen",
-            "creationTime": 1658076513118,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkgen:*",
-            "storedBytes": 352904
-        },
-        {
-            "logGroupName": "/aws/lambda/elkqitech",
-            "creationTime": 1658041946511,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkqitech:*",
-            "storedBytes": 4032011
-        },
-        {
-            "logGroupName": "/aws/lambda/elksglrt",
-            "creationTime": 1658042116227,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elksglrt:*",
-            "storedBytes": 91049
-        },
-        {
-            "logGroupName": "/aws/lambda/elksupply",
-            "creationTime": 1657955251767,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elksupply:*",
-            "storedBytes": 1698387
-        },
-        {
-            "logGroupName": "/aws/lambda/elksvl",
-            "creationTime": 1658041986488,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elksvl:*",
-            "storedBytes": 878891
-        },
-        {
-            "logGroupName": "/aws/lambda/elkthall",
-            "creationTime": 1658042180180,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkthall:*",
-            "storedBytes": 6783
-        },
-        {
-            "logGroupName": "/aws/lambda/elkthawk",
-            "creationTime": 1658042150442,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/elkthawk:*",
-            "storedBytes": 540360
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-bankslip",
-            "creationTime": 1645538692103,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-bankslip:*",
-            "storedBytes": 814489
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-bankslip-2nd-way",
-            "creationTime": 1650292480669,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-bankslip-2nd-way:*",
-            "storedBytes": 9099844
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-debt-emission",
-            "creationTime": 1645538691896,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-debt-emission:*",
-            "storedBytes": 4618902
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-document-upload",
-            "creationTime": 1645538691425,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-document-upload:*",
-            "storedBytes": 910117
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-get-credit-policy",
-            "creationTime": 1650292480371,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-get-credit-policy:*",
-            "storedBytes": 349372
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-present-value",
-            "creationTime": 1650292480746,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-present-value:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkcondo:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/qi-tech-production-refinance",
-            "creationTime": 1650292480085,
+            "logGroupName": "/aws/lambda/elkecs",
+            "creationTime": 1658513874583,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-refinance:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkecs:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/qi-tech-production-sign",
-            "creationTime": 1645538691692,
+            "logGroupName": "/aws/lambda/elkothers",
+            "creationTime": 1658513769041,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-sign:*",
-            "storedBytes": 651176
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-simulation",
-            "creationTime": 1645538691805,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-simulation:*",
-            "storedBytes": 189358669
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-simulation-range",
-            "creationTime": 1650292480186,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-simulation-range:*",
-            "storedBytes": 43993314
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-update-credit-policy",
-            "creationTime": 1650292481208,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-update-credit-policy:*",
-            "storedBytes": 298797
-        },
-        {
-            "logGroupName": "/aws/lambda/qi-tech-production-webhook",
-            "creationTime": 1645538691378,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-production-webhook:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkothers:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/qi-tech-public-production-webhook",
-            "creationTime": 1650659682955,
+            "logGroupName": "/aws/lambda/elkqite",
+            "creationTime": 1658513454568,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/qi-tech-public-production-webhook:*",
-            "storedBytes": 21452045
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-chat-notification",
-            "creationTime": 1645197988073,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-chat-notification:*",
-            "storedBytes": 17081579
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-cnab-generator",
-            "creationTime": 1632330940807,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-cnab-generator:*",
-            "storedBytes": 645965
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-daily",
-            "creationTime": 1646846432243,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-daily:*",
-            "storedBytes": 14658
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-easy-retro",
-            "creationTime": 1646332954506,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-easy-retro:*",
-            "storedBytes": 18436
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-email-consumer",
-            "creationTime": 1623781336477,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-email-consumer:*",
-            "storedBytes": 33569241
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-get-cnpj-info",
-            "creationTime": 1650919743656,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-get-cnpj-info:*",
-            "storedBytes": 4270429
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-score-serasa",
-            "creationTime": 1657919978638,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-score-serasa:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkqite:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/serverless-production-sms-consumer",
-            "creationTime": 1623781336382,
+            "logGroupName": "/aws/lambda/elkserve",
+            "creationTime": 1658513591246,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-sms-consumer:*",
-            "storedBytes": 5043167
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-transfer-term-generator",
-            "creationTime": 1631650284791,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-transfer-term-generator:*",
-            "storedBytes": 1073870
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-upload-cnab",
-            "creationTime": 1639510971581,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-upload-cnab:*",
-            "storedBytes": 153335
-        },
-        {
-            "logGroupName": "/aws/lambda/serverless-production-whatsapp-template-consumer",
-            "creationTime": 1631650284161,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverless-production-whatsapp-template-consumer:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkserve:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-ZjQBtH4gffs0",
-            "creationTime": 1657079386588,
+            "logGroupName": "/aws/lambda/elksingu",
+            "creationTime": 1658514254077,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-ZjQBtH4gffs0:*",
-            "storedBytes": 268900
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elksingu:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-isUEJlOyr6rZ",
-            "creationTime": 1657053671410,
+            "logGroupName": "/aws/lambda/elksuppl",
+            "creationTime": 1658513356103,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-isUEJlOyr6rZ:*",
-            "storedBytes": 121702
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elksuppl:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-NQvR7vmLC2A4",
-            "creationTime": 1657078531988,
+            "logGroupName": "/aws/lambda/elkswagg",
+            "creationTime": 1658513681024,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-NQvR7vmLC2A4:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elkswagg:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/elktonyh",
+            "creationTime": 1658513972578,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elktonyh:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/elktownh",
+            "creationTime": 1658514065655,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/elktownh:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-bankslip",
+            "creationTime": 1650559992072,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-bankslip:*",
+            "storedBytes": 148
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-bankslip-2nd-way",
+            "creationTime": 1650559992176,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-bankslip-2nd-way:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-debt-emission",
+            "creationTime": 1650559992069,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-debt-emission:*",
+            "storedBytes": 70970
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-document-upload",
+            "creationTime": 1650559992086,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-document-upload:*",
+            "storedBytes": 26773
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-get-credit-policy",
+            "creationTime": 1650559992525,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-get-credit-policy:*",
+            "storedBytes": 15736
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-present-value",
+            "creationTime": 1650559991935,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-present-value:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-refinance",
+            "creationTime": 1650559992186,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-refinance:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-sign",
+            "creationTime": 1650559992440,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-sign:*",
+            "storedBytes": 3618
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-simulation",
+            "creationTime": 1650559991831,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-simulation:*",
+            "storedBytes": 1722674
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-simulation-range",
+            "creationTime": 1650559992406,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-simulation-range:*",
+            "storedBytes": 2293645
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-update-credit-policy",
+            "creationTime": 1650559992218,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-update-credit-policy:*",
+            "storedBytes": 45519
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-dev-webhook",
+            "creationTime": 1650559992405,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-dev-webhook:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/qi-tech-public-dev-webhook",
+            "creationTime": 1650642120916,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/qi-tech-public-dev-webhook:*",
+            "storedBytes": 983
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-chat-notification",
+            "creationTime": 1644939705622,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-chat-notification:*",
+            "storedBytes": 1830763
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-cnab-generator",
+            "creationTime": 1631904884720,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-cnab-generator:*",
+            "storedBytes": 460452
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-daily",
+            "creationTime": 1646841166660,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-daily:*",
+            "storedBytes": 770
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-easy-retro",
+            "creationTime": 1646255159366,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-easy-retro:*",
+            "storedBytes": 873
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-email-consumer",
+            "creationTime": 1624915659003,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-email-consumer:*",
+            "storedBytes": 1426109
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-get-cnpj-info",
+            "creationTime": 1650631872010,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-get-cnpj-info:*",
+            "storedBytes": 623910
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-score-serasa",
+            "creationTime": 1657858376614,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-score-serasa:*",
+            "storedBytes": 22856
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-sms-consumer",
+            "creationTime": 1624915658831,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-sms-consumer:*",
+            "storedBytes": 28143
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-transfer-term-generator",
+            "creationTime": 1631629840240,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-transfer-term-generator:*",
+            "storedBytes": 991265
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-upload-cnab",
+            "creationTime": 1639448991140,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-upload-cnab:*",
+            "storedBytes": 57278
+        },
+        {
+            "logGroupName": "/aws/lambda/serverless-dev-whatsapp-template-consumer",
+            "creationTime": 1630941597763,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverless-dev-whatsapp-template-consumer:*",
+            "storedBytes": 0
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elastic-se-ApplicationElasticServer-5E5gKCZeiacR",
+            "creationTime": 1655492082234,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elastic-se-ApplicationElasticServer-5E5gKCZeiacR:*",
+            "storedBytes": 42788
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elastic-se-MacroElasticServerlessFo-AUYGranyjTWx",
+            "creationTime": 1655915231203,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elastic-se-MacroElasticServerlessFo-AUYGranyjTWx:*",
             "storedBytes": 299
         },
         {
-            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-R6RfPnbh7eWQ",
-            "creationTime": 1656946783641,
+            "logGroupName": "/aws/lambda/serverlessrepo-elastic-se-MacroElasticServerlessFo-SW8ToRDpRQBQ",
+            "creationTime": 1655484338749,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-R6RfPnbh7eWQ:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elastic-se-MacroElasticServerlessFo-SW8ToRDpRQBQ:*",
+            "storedBytes": 299
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-5OnDSQ4BLNY4",
+            "creationTime": 1656969828928,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-5OnDSQ4BLNY4:*",
+            "storedBytes": 37046
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-ebBH6n9zslPf",
+            "creationTime": 1656976786677,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-ebBH6n9zslPf:*",
+            "storedBytes": 34295
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-nd4XMCpiBMbC",
+            "creationTime": 1657120947714,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-nd4XMCpiBMbC:*",
+            "storedBytes": 8318
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-rihg2XVoCHFt",
+            "creationTime": 1656735333418,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-rihg2XVoCHFt:*",
+            "storedBytes": 6832
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-wqyrXb6LlOfJ",
+            "creationTime": 1656855654688,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-ApplicationElasticServer-wqyrXb6LlOfJ:*",
+            "storedBytes": 1292
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-602Ddvxpf0D0",
+            "creationTime": 1656976489287,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-602Ddvxpf0D0:*",
+            "storedBytes": 1201
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-B0ajKtAdb2eq",
+            "creationTime": 1657120616910,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-B0ajKtAdb2eq:*",
             "storedBytes": 300
         },
         {
-            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-nwptxa4wm7kk",
-            "creationTime": 1657053432911,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-GAIYmmmoY9ac",
+            "creationTime": 1657119252985,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-nwptxa4wm7kk:*",
-            "storedBytes": 598
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-GAIYmmmoY9ac:*",
+            "storedBytes": 301
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-attach-files-to-transaction",
-            "creationTime": 1654108467889,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-NI1nY2lXLOsV",
+            "creationTime": 1656969534075,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-attach-files-to-transaction:*",
-            "storedBytes": 26214
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-NI1nY2lXLOsV:*",
+            "storedBytes": 898
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-get-file",
-            "creationTime": 1653333393878,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-WmOvIuiuiIDp",
+            "creationTime": 1656962809198,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-get-file:*",
-            "storedBytes": 44235
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-WmOvIuiuiIDp:*",
+            "storedBytes": 300
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-get-transaction-details",
-            "creationTime": 1654108467457,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-ckm0TFknmJHP",
+            "creationTime": 1656725797583,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-get-transaction-details:*",
-            "storedBytes": 44356
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-ckm0TFknmJHP:*",
+            "storedBytes": 1485
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-list-transactions",
-            "creationTime": 1653333394058,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-jbUWC4mU9wKC",
+            "creationTime": 1656965277244,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-list-transactions:*",
-            "storedBytes": 311576
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-jbUWC4mU9wKC:*",
+            "storedBytes": 299
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-process-fidc-file",
-            "creationTime": 1657245882543,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-skxDLSX8TJVU",
+            "creationTime": 1656855409222,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-process-fidc-file:*",
-            "storedBytes": 2909
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-skxDLSX8TJVU:*",
+            "storedBytes": 599
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-process-ftp-file",
-            "creationTime": 1653333394263,
+            "logGroupName": "/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-vqRaBmmidgc5",
+            "creationTime": 1656967800662,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-process-ftp-file:*",
-            "storedBytes": 282558
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-elk-server-MacroElasticServerlessFo-vqRaBmmidgc5:*",
+            "storedBytes": 300
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-process-settlements",
-            "creationTime": 1654108467986,
+            "logGroupName": "/aws/lambda/serverlessrepo-flow-logs--ApplicationElasticServer-B9IXJV5NHpsV",
+            "creationTime": 1655684640099,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-process-settlements:*",
-            "storedBytes": 290618
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-flow-logs--ApplicationElasticServer-B9IXJV5NHpsV:*",
+            "storedBytes": 3652378
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-send-transaction-to-singulare",
-            "creationTime": 1654108467167,
+            "logGroupName": "/aws/lambda/serverlessrepo-flow-logs--MacroElasticServerlessFo-6npZeodhDP3y",
+            "creationTime": 1655566656516,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-send-transaction-to-singulare:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-flow-logs--MacroElasticServerlessFo-6npZeodhDP3y:*",
+            "storedBytes": 298
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-lambda-con-ApplicationElasticServer-Ef8AALbN7D9q",
+            "creationTime": 1657131532364,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-lambda-con-ApplicationElasticServer-Ef8AALbN7D9q:*",
+            "storedBytes": 3731
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-lambda-con-MacroElasticServerlessFo-LPF4cXdcKjPx",
+            "creationTime": 1657131263263,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-lambda-con-MacroElasticServerlessFo-LPF4cXdcKjPx:*",
+            "storedBytes": 600
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-lambda-qi--ApplicationElasticServer-LYkYGqjdqxQa",
+            "creationTime": 1657150915547,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-lambda-qi--ApplicationElasticServer-LYkYGqjdqxQa:*",
+            "storedBytes": 1278
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-lambda-qi--MacroElasticServerlessFo-Ek8trM2sELRn",
+            "creationTime": 1657150515645,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-lambda-qi--MacroElasticServerlessFo-Ek8trM2sELRn:*",
+            "storedBytes": 300
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-terraform--ApplicationElasticServer-IEvN8T1okmAf",
+            "creationTime": 1656048377952,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-terraform--ApplicationElasticServer-IEvN8T1okmAf:*",
+            "storedBytes": 15168
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-terraform--ApplicationElasticServer-xan8GZRcWmbq",
+            "creationTime": 1656639184091,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-terraform--ApplicationElasticServer-xan8GZRcWmbq:*",
+            "storedBytes": 1278
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-terraform--MacroElasticServerlessFo-wb5eC5PxvxPl",
+            "creationTime": 1656047275136,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-terraform--MacroElasticServerlessFo-wb5eC5PxvxPl:*",
+            "storedBytes": 901
+        },
+        {
+            "logGroupName": "/aws/lambda/serverlessrepo-terraform--MacroElasticServerlessFo-yQ4P2m8ZL2S1",
+            "creationTime": 1656637707502,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/serverlessrepo-terraform--MacroElasticServerlessFo-yQ4P2m8ZL2S1:*",
+            "storedBytes": 298
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-attach-files-to-transaction",
+            "creationTime": 1654098214502,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-attach-files-to-transaction:*",
+            "storedBytes": 1294
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-get-file",
+            "creationTime": 1653151085296,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-get-file:*",
+            "storedBytes": 3371
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-get-transaction-details",
+            "creationTime": 1654098214368,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-get-transaction-details:*",
+            "storedBytes": 11683
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-list-transactions",
+            "creationTime": 1652978753858,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-list-transactions:*",
+            "storedBytes": 52006
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-process-fidc-file",
+            "creationTime": 1656506095891,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-process-fidc-file:*",
+            "storedBytes": 15421
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-process-ftp-file",
+            "creationTime": 1652978754600,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-process-ftp-file:*",
+            "storedBytes": 44502
+        },
+        {
+            "logGroupName": "/aws/lambda/singularity-dev-process-settlements",
+            "creationTime": 1654098214639,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-process-settlements:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/singularity-production-settle-payments",
-            "creationTime": 1654108467624,
+            "logGroupName": "/aws/lambda/singularity-dev-send-transaction-to-singulare",
+            "creationTime": 1654098214117,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/singularity-production-settle-payments:*",
-            "storedBytes": 21931
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-hubert-invoice-integration",
-            "creationTime": 1651263405279,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-hubert-invoice-integration:*",
-            "storedBytes": 30971331
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-supplier-enrichment",
-            "creationTime": 1650975620930,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-supplier-enrichment:*",
-            "storedBytes": 1959811
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-supplier-inactivation",
-            "creationTime": 1653917059098,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-supplier-inactivation:*",
-            "storedBytes": 144434
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-supplier-prospect-notification",
-            "creationTime": 1651263404765,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-supplier-prospect-notification:*",
-            "storedBytes": 646441
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-supplier-weekly-notification",
-            "creationTime": 1643202552016,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-supplier-weekly-notification:*",
-            "storedBytes": 20649778
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-supporti-invoice-integration",
-            "creationTime": 1652368269034,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-supporti-invoice-integration:*",
-            "storedBytes": 4596086
-        },
-        {
-            "logGroupName": "/aws/lambda/supply-prod-validate-supplier-email",
-            "creationTime": 1655766775956,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/supply-prod-validate-supplier-email:*",
-            "storedBytes": 293659
-        },
-        {
-            "logGroupName": "/aws/lambda/tonyhawk-production-add-comment",
-            "creationTime": 1645459086111,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-add-comment:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-send-transaction-to-singulare:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-card-move-webhook",
-            "creationTime": 1653916761905,
+            "logGroupName": "/aws/lambda/singularity-dev-settle-payments",
+            "creationTime": 1654098213862,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-card-move-webhook:*",
-            "storedBytes": 667826
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/singularity-dev-settle-payments:*",
+            "storedBytes": 1216
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-create-card",
-            "creationTime": 1645459086631,
+            "logGroupName": "/aws/lambda/supply-dev-hubert-invoice-integration",
+            "creationTime": 1651250796493,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-create-card:*",
-            "storedBytes": 3278833
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-hubert-invoice-integration:*",
+            "storedBytes": 574227
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-delete-card",
-            "creationTime": 1645459086793,
+            "logGroupName": "/aws/lambda/supply-dev-supplier-enrichment",
+            "creationTime": 1650655350630,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-delete-card:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-supplier-enrichment:*",
+            "storedBytes": 204879
+        },
+        {
+            "logGroupName": "/aws/lambda/supply-dev-supplier-inactivation",
+            "creationTime": 1653050109305,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-supplier-inactivation:*",
+            "storedBytes": 6070
+        },
+        {
+            "logGroupName": "/aws/lambda/supply-dev-supplier-prospect-notification",
+            "creationTime": 1651252385276,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-supplier-prospect-notification:*",
+            "storedBytes": 45848
+        },
+        {
+            "logGroupName": "/aws/lambda/supply-dev-supplier-weekly-notification",
+            "creationTime": 1642797756296,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-supplier-weekly-notification:*",
+            "storedBytes": 591324
+        },
+        {
+            "logGroupName": "/aws/lambda/supply-dev-supporti-invoice-integration",
+            "creationTime": 1652802061307,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-supporti-invoice-integration:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-delete-comment",
-            "creationTime": 1645459086843,
+            "logGroupName": "/aws/lambda/supply-dev-validate-supplier-email",
+            "creationTime": 1655325469323,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-delete-comment:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/supply-dev-validate-supplier-email:*",
+            "storedBytes": 49783
+        },
+        {
+            "logGroupName": "/aws/lambda/swagger-basic-auth",
+            "creationTime": 1654818350230,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/swagger-basic-auth:*",
+            "storedBytes": 2486
+        },
+        {
+            "logGroupName": "/aws/lambda/tonyhawk-dev-add-comment",
+            "creationTime": 1644601430218,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-add-comment:*",
+            "storedBytes": 566
+        },
+        {
+            "logGroupName": "/aws/lambda/tonyhawk-dev-card-move-webhook",
+            "creationTime": 1652980226644,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-card-move-webhook:*",
+            "storedBytes": 20098
+        },
+        {
+            "logGroupName": "/aws/lambda/tonyhawk-dev-create-card",
+            "creationTime": 1644601428970,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-create-card:*",
+            "storedBytes": 262103
+        },
+        {
+            "logGroupName": "/aws/lambda/tonyhawk-dev-delete-card",
+            "creationTime": 1644601429217,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-delete-card:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-move-phase",
-            "creationTime": 1645459086678,
+            "logGroupName": "/aws/lambda/tonyhawk-dev-delete-comment",
+            "creationTime": 1644601429991,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-move-phase:*",
-            "storedBytes": 2408157
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-delete-comment:*",
+            "storedBytes": 551
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-process-action",
-            "creationTime": 1645459086623,
+            "logGroupName": "/aws/lambda/tonyhawk-dev-move-phase",
+            "creationTime": 1644601429285,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-process-action:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-move-phase:*",
+            "storedBytes": 224786
+        },
+        {
+            "logGroupName": "/aws/lambda/tonyhawk-dev-process-action",
+            "creationTime": 1644601430003,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-process-action:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/lambda/tonyhawk-production-update-card",
-            "creationTime": 1645459086706,
+            "logGroupName": "/aws/lambda/tonyhawk-dev-update-card",
+            "creationTime": 1644601429276,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/tonyhawk-production-update-card:*",
-            "storedBytes": 2442507
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/tonyhawk-dev-update-card:*",
+            "storedBytes": 477421
         },
         {
-            "logGroupName": "/aws/lambda/townhall-prod-company-enrichment",
-            "creationTime": 1651077991418,
+            "logGroupName": "/aws/lambda/townhall-dev-company-enrichment",
+            "creationTime": 1651065083798,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/townhall-prod-company-enrichment:*",
-            "storedBytes": 222064
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/townhall-dev-company-enrichment:*",
+            "storedBytes": 6165
         },
         {
-            "logGroupName": "/aws/lambda/townhall-prod-employee-rescision",
-            "creationTime": 1655729929772,
+            "logGroupName": "/aws/lambda/townhall-dev-employee-rescision",
+            "creationTime": 1655849276815,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/lambda/townhall-prod-employee-rescision:*",
-            "storedBytes": 84837
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/townhall-dev-employee-rescision:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "/aws/rds/cluster/prod-mysql/error",
-            "creationTime": 1630632539226,
+            "logGroupName": "/aws/lambda/townhall-dev-update-employee-score",
+            "creationTime": 1658254558812,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/rds/cluster/prod-mysql/error:*",
-            "storedBytes": 81125
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/lambda/townhall-dev-update-employee-score:*",
+            "storedBytes": 40609
         },
         {
-            "logGroupName": "/aws/rds/instance/prod-consignado-legacy-sql-server/error",
-            "creationTime": 1623723784457,
+            "logGroupName": "/aws/rds/cluster/auth/error",
+            "creationTime": 1630377649248,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:/aws/rds/instance/prod-consignado-legacy-sql-server/error:*",
-            "storedBytes": 2054829
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/rds/cluster/auth/error:*",
+            "storedBytes": 5017
+        },
+        {
+            "logGroupName": "/aws/rds/cluster/dev-mysql/error",
+            "creationTime": 1630466359022,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/rds/cluster/dev-mysql/error:*",
+            "storedBytes": 40751
+        },
+        {
+            "logGroupName": "/aws/rds/instance/dev-consignado-legacy-sql-server/error",
+            "creationTime": 1624815244420,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/aws/rds/instance/dev-consignado-legacy-sql-server/error:*",
+            "storedBytes": 1734448
+        },
+        {
+            "logGroupName": "/ecs/flask-ecsfargate-td",
+            "creationTime": 1625417334160,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:/ecs/flask-ecsfargate-td:*",
+            "storedBytes": 8079
         },
         {
             "logGroupName": "RDSOSMetrics",
-            "creationTime": 1623723847943,
+            "creationTime": 1624815297132,
             "retentionInDays": 30,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:RDSOSMetrics:*",
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:RDSOSMetrics:*",
             "storedBytes": 0
         },
         {
-            "logGroupName": "prod-adm-bff",
-            "creationTime": 1650294836742,
+            "logGroupName": "dev-adm-bff",
+            "creationTime": 1642603979609,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-adm-bff:*",
-            "storedBytes": 3310323
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-adm-bff:*",
+            "storedBytes": 14145466
         },
         {
-            "logGroupName": "prod-adm-panel",
-            "creationTime": 1632754935142,
+            "logGroupName": "dev-adm-panel",
+            "creationTime": 1632518263765,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-adm-panel:*",
-            "storedBytes": 589768
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-adm-panel:*",
+            "storedBytes": 117641
         },
         {
-            "logGroupName": "prod-auth-service",
-            "creationTime": 1623718910061,
+            "logGroupName": "dev-auth-service",
+            "creationTime": 1624813062315,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-auth-service:*",
-            "storedBytes": 9896337
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-auth-service:*",
+            "storedBytes": 706576
         },
         {
-            "logGroupName": "prod-backoffice-bff",
-            "creationTime": 1650293294843,
+            "logGroupName": "dev-backoffice-bff",
+            "creationTime": 1644871874615,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-backoffice-bff:*",
-            "storedBytes": 28744142474
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-backoffice-bff:*",
+            "storedBytes": 727560220
         },
         {
-            "logGroupName": "prod-backoffice-panel",
-            "creationTime": 1623719128502,
+            "logGroupName": "dev-backoffice-panel",
+            "creationTime": 1624812944169,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-backoffice-panel:*",
-            "storedBytes": 1612206
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-backoffice-panel:*",
+            "storedBytes": 2042405
         },
         {
-            "logGroupName": "prod-collaborator-bff",
-            "creationTime": 1645103802524,
+            "logGroupName": "dev-collaborator-bff",
+            "creationTime": 1635443088138,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-collaborator-bff:*",
-            "storedBytes": 834216724
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-collaborator-bff:*",
+            "storedBytes": 1193768483
         },
         {
-            "logGroupName": "prod-collaborator-pwa",
-            "creationTime": 1636077264953,
+            "logGroupName": "dev-collaborator-pwa",
+            "creationTime": 1636076381148,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-collaborator-pwa:*",
-            "storedBytes": 483058
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-collaborator-pwa:*",
+            "storedBytes": 286174
         },
         {
-            "logGroupName": "prod-condo-loan",
-            "creationTime": 1643830545783,
+            "logGroupName": "dev-condo-loan",
+            "creationTime": 1643806906146,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-condo-loan:*",
-            "storedBytes": 164506291
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-condo-loan:*",
+            "storedBytes": 21390644
         },
         {
-            "logGroupName": "prod-consignado-privado-service",
-            "creationTime": 1623720597184,
+            "logGroupName": "dev-consignado-privado-service",
+            "creationTime": 1624813915822,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-consignado-privado-service:*",
-            "storedBytes": 2606362
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-consignado-privado-service:*",
+            "storedBytes": 256035
         },
         {
-            "logGroupName": "prod-grafana",
-            "creationTime": 1633639218761,
+            "logGroupName": "dev-rate-accountant",
+            "creationTime": 1624813972482,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-grafana:*",
-            "storedBytes": 293207
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-rate-accountant:*",
+            "storedBytes": 848255
         },
         {
-            "logGroupName": "prod-metabase",
-            "creationTime": 1630898855903,
+            "logGroupName": "dev-suppliers-front",
+            "creationTime": 1626380608622,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-metabase:*",
-            "storedBytes": 324292832
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-suppliers-front:*",
+            "storedBytes": 156605
         },
         {
-            "logGroupName": "prod-rate-accountant",
-            "creationTime": 1623719008336,
+            "logGroupName": "dev-supply-chain",
+            "creationTime": 1629741671963,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-rate-accountant:*",
-            "storedBytes": 12301624
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-supply-chain:*",
+            "storedBytes": 1587562
         },
         {
-            "logGroupName": "prod-suppliers-front",
-            "creationTime": 1631535539566,
+            "logGroupName": "dev-supply-chain-anticipations",
+            "creationTime": 1632761273450,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-suppliers-front:*",
-            "storedBytes": 492599
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-supply-chain-anticipations:*",
+            "storedBytes": 1531230
         },
         {
-            "logGroupName": "prod-supply-chain",
-            "creationTime": 1631998327408,
+            "logGroupName": "dev-supply-chain-integrations",
+            "creationTime": 1630888062316,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-supply-chain:*",
-            "storedBytes": 27289677
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-supply-chain-integrations:*",
+            "storedBytes": 41326
         },
         {
-            "logGroupName": "prod-supply-chain-anticipations",
-            "creationTime": 1633017076976,
+            "logGroupName": "dev-supply-chain-notifications",
+            "creationTime": 1632187933106,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-supply-chain-anticipations:*",
-            "storedBytes": 767374
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-supply-chain-notifications:*",
+            "storedBytes": 0
         },
         {
-            "logGroupName": "prod-supply-chain-integrations",
-            "creationTime": 1631997197857,
+            "logGroupName": "dev-townhall",
+            "creationTime": 1628018766315,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-supply-chain-integrations:*",
-            "storedBytes": 3209825
-        },
-        {
-            "logGroupName": "prod-supply-chain-notifications",
-            "creationTime": 1632341987639,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-supply-chain-notifications:*",
-            "storedBytes": 780704
-        },
-        {
-            "logGroupName": "prod-townhall",
-            "creationTime": 1629939049713,
-            "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:prod-townhall:*",
-            "storedBytes": 4756381
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:dev-townhall:*",
+            "storedBytes": 1004961
         },
         {
             "logGroupName": "vpn",
-            "creationTime": 1650291181116,
+            "creationTime": 1649266630078,
             "metricFilterCount": 0,
-            "arn": "arn:aws:logs:sa-east-1:168984433384:log-group:vpn:*",
-            "storedBytes": 0
+            "arn": "arn:aws:logs:us-east-1:539226003299:log-group:vpn:*",
+            "storedBytes": 16382
         }
     ]
 }

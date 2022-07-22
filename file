@@ -1,0 +1,1 @@
+- log_group_name: /aws/lambda/townhall-dev-company-enrichment - log_group_name: /aws/lambda/townhall-dev-employee-rescision - log_group_name: /aws/lambda/townhall-dev-update-employee-score

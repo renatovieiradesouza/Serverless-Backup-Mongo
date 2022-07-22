@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 #  cada novo deploy, valida se já foi implanted, caso não, segue toda esteira
 #  caso já tenha sido. roda update
@@ -10,11 +10,12 @@ bucket=$1 #("elk-condolivre-dev" "elk-condolivre-stg" "elk-condolivre-prod")
 index=$2 #INDEX DO ELASTIC (development | staging | production)
 cloudid=$3 #ELK_CondoLivre:dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyQ5Y2ExOGQ0Nzk2YzY0MmYyOWU5ZTczY2E1ZTcwYjgwZSQ5YWIyNDFiMjBhNzg0MTMwOGM2ZTJhNGQ4ODZlMzUwYQ==
 elasticuser=$4 #elastic:H8rE2xkLwEuT8VZTueStdQbL
+to_remove=$5 #somente quando deseja remover todas as subscriptions
 
 
 count_log_groups_for_implement=`find temp -name "file.txt" | wc -l`
 date_last_implementd=`date +'%F-%H%M%S'`
-mkdir -p temp/$date_last_implementd
+
 
 echo
 echo "#######################"
@@ -38,6 +39,8 @@ else
     exit 1
 fi
 echo
+
+mkdir -p temp/generate
 
 for i in $(seq $count_log_groups_for_implement)
 do
@@ -79,6 +82,46 @@ output.elasticsearch:
   index: \"${index}\"
 processors:
   - add_host_metadata: ~
-  - add_cloud_metadata: ~ " > temp/$date_last_implementd/"elk"$name_log_group.yml
-done
+  - add_cloud_metadata: ~ " > temp/generate/"elk"$name_log_group.yml
 
+    log=`echo "${path_log_group}" | sed 's/      //' | sed 's/- log_group_name:/aws logs describe-subscription-filters --log-group-name/'`
+    countLog=`echo "${log}" | wc -l`
+    
+    without_subscription=0
+    with_subscription=0
+    for i in $(seq $countLog)
+    do
+        mount_cli=`echo "${log}" | sed -n "${i}p"`
+        echo $mount_cli
+        run_=`$mount_cli | egrep logGroupName`
+        if [ $? -eq 0 ]; then
+            let with_subscription=with_subscription+1
+        else
+            let without_subscription=without_subscription+1
+        fi
+
+        #run_=`$mount_cli | egrep logGroupName  > /dev/null`
+        echo $run_
+    done
+
+    echo "with_subscription $with_subscription"
+    echo "without_subscription $without_subscription"
+
+    if [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
+        chmod +x functionbeat
+        echo "Running update: $name_log_group"
+        ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml
+        #Verificar retorno com $? e notificar em caso de erro no teams
+    elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
+        chmod +x functionbeat
+        echo "Running deploy: $name_log_group"
+        ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+         #Verificar retorno com $? e notificar em caso de erro no teams    
+    elif [ "${to_remove}" = "remove" ]; then
+        echo "removendo $name_log_group"
+        ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+    else
+        echo "Nothing now"
+    fi
+
+done

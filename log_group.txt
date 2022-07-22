@@ -1,0 +1,12 @@
+{
+    "subscriptionFilters": [
+        {
+            "filterName": "fnb-elkcondo-stack-fnbelkcondoSFawslambdacondoloanasycdevaddressocrfinished-9PA355DLHW72",
+            "logGroupName": "/aws/lambda/condo-loan-asyc-dev-address-ocr-finished",
+            "filterPattern": "",
+            "destinationArn": "arn:aws:lambda:us-east-1:539226003299:function:elkcondo",
+            "distribution": "ByLogStream",
+            "creationTime": 1658409097331
+        }
+    ]
+}
