@@ -1,10 +1,8 @@
 #!/bin/bash
 
 #Var devem vir do github variaveis
-env_ecs="prod"
-env_ecs_rule="production" #Apply between stg and prod. For stg use staging and prod use production
-
-predefined_groups_lambdas=("/aws/lambda/cara-cracha" "/aws/lambda/condo-loan-asyc" "/aws/lambda/qi-tech" "/aws/lambda/serverless" "/aws/lambda/singularity" "/aws/lambda/supply" "/aws/lambda/tonyhawk" "/aws/lambda/townhall")
+env_ecs="dev"
+env_ecs_rule="dev" #Apply between stg and prod. For stg use staging and prod use production
 
 #Functions
 
@@ -13,7 +11,7 @@ get_log_group_from_aws_cli(){
     echo "Get all Logs from aws account"
     echo "##################"
     aws logs describe-log-groups > log.json
-
+    sleep 1
     #Checking file log.json is ok
     if [ ! -f log.json ]; then
 
@@ -26,30 +24,29 @@ get_log_group_from_aws_cli(){
 }
 
 get_log_group_lambdas_from_file(){
-
-    echo
+    item=`echo ${1} | sed 's/"//g'`
     echo "##################"
-    echo "Prepare temp folder for log group -> ${1}"
+    echo "Prepare temp folder for log group -> ${item}"
     echo "##################"
     echo 
-    folder_temp="temp/${1}"
-    mkdir -p $folder_temp
+    folder_temp="temp/${item}"
+    echo "foldersss $folder_temp"
+    mkdir -p ${folder_temp}
     if [ -d "temp/" ]; then
         echo "Folder is created"
     fi
     echo
     echo "##################"
-    echo "Numbers of itens for log group -> ${1}"
+    echo "Numbers of itens for log group -> ${item}"
     echo "##################"
     echo 
-    egrep -c "\"logGroupName\": \"${1}-.*" log.json
+    egrep -c "\"logGroupName\": \"${item}-.*" log.json
     echo 
     echo "##################"
-    echo "Itens for log group -> ${1}"
+    echo "Itens for log group -> ${item}"
     echo "##################"
     echo 
-    egrep "\"logGroupName\": \"${1}-.*" log.json | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
+    egrep "\"logGroupName\": \"/aws/lambda/${item}.*" log.json | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /' > $folder_temp/file.txt
 }
 
 #Get Others log groups
@@ -74,7 +71,6 @@ get_log_group_from_file_others(){
     echo 
     
     egrep 'logGroupName' log.json | sed 's/\"logGroupName\": \"\/aws\/lambda\/.*//' | sed -e "s/\"logGroupName\": \"${env_ecs_rule}.*//" | sed -e "s/\"logGroupName\": \"${env_ecs}.*//" | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//' | sed 's/            /      /' |  sed '/^[[:space:]]*$/d' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
 
 }
 
@@ -99,7 +95,6 @@ get_log_group_ecs_from_file(){
     echo 
     
     egrep "\"logGroupName\": \"${env_ecs}-" log.json | sed 's/\"logGroupName\": \"\/aws\/lambda\/.*//' | sed 's/"logGroupName"/- log_group_name/' | sed 's/"//' | sed 's/",//'  | sed 's/            /      /' |  sed '/^[[:space:]]*$/d' > $folder_temp/file.txt
-    cat $folder_temp/file.txt
 
 }
 
@@ -108,9 +103,12 @@ get_log_group_ecs_from_file(){
 #Getin data from aws
 get_log_group_from_aws_cli
 
+#Organizing logs
+predefined_groups_lambdas=$(egrep "/aws/lambda/" log.json | sed 's/\"arn\".*//' | awk '{print $2}' | cut -c 12-20 | sort | uniq | sed 's/\///' | sed 's/ //' | sed 's/^[a-z]/"/' | sed 's/[a-z][\.-]$/"/' | sed 's/[a-z]$/"/' | sed 's/ //')
+
 #Getin log group lambdas
-for i in "${predefined_groups_lambdas[@]}"
-do
+for i in ${predefined_groups_lambdas[@]}
+do 
     get_log_group_lambdas_from_file $i
 done
 

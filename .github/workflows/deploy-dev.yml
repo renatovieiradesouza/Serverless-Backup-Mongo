@@ -1,0 +1,141 @@
+name: Deploy Elasticsearch
+
+on:
+  push:
+    tags:
+      - elkondo*
+
+jobs:
+  deploy-elastic-search-dev:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: dev
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+          aws-region: ${{ secrets.AWS_REGION_DEV }}
+
+      - name: Step 1 - Prepare files
+        run: | 
+          chmod +x step1.sh
+          ./step1.sh -d elkondo
+
+      - uses: actions/cache@v3
+        with:
+          path: temp/
+          key: ${{ runner.os }}-elkondo
+
+      - name: Step 2 - Generate yml and Deploy
+        env:
+          bucket: ${{ secrets.BUCKET_DEV }}
+          cloudid: ${{ secrets.CLOUDID }}
+          elasticuser: ${{ secrets.ELASTICUSER }}
+          delete: ${{ secrets.DELETE }}
+          index: "development"
+        run: | 
+          chmod +x step2.sh
+          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
+          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
+          cd functionbeat-8.3.2-linux-x86_64
+          mv pkg/ ../
+          mv functionbeat ../
+          cd ..
+          chmod +x functionbeat
+          ./functionbeat version
+          ./step2.sh $bucket $index $cloudid $elasticuser $delete
+
+  deploy-elastic-search-stg:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: stg
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
+          aws-region: ${{ secrets.AWS_REGION_STG }}
+
+      - name: Step 1 - Prepare files
+        run: | 
+          chmod +x step1.sh
+          ./step1.sh -d elkondo
+
+      - uses: actions/cache@v3
+        with:
+          path: temp/
+          key: ${{ runner.os }}-elkondo
+
+      - name: Step 2 - Generate yml and Deploy
+        env:
+          bucket: ${{ secrets.BUCKET_STG }}
+          cloudid: ${{ secrets.CLOUDID }}
+          elasticuser: ${{ secrets.ELASTICUSER }}
+          delete: ${{ secrets.DELETE }}
+          index: "staging"
+        run: | 
+          chmod +x step2.sh
+          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
+          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
+          cd functionbeat-8.3.2-linux-x86_64
+          mv pkg/ ../
+          mv functionbeat ../
+          cd ..
+          chmod +x functionbeat
+          ./functionbeat version
+          ./step2.sh $bucket $index $cloudid $elasticuser $delete
+
+  deploy-elastic-search-prod:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: prod
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{ secrets.AWS_REGION_PROD }}
+
+      - name: Step 1 - Prepare files
+        run: | 
+          chmod +x step1.sh
+          ./step1.sh -d elkondo
+
+      - uses: actions/cache@v3
+        with:
+          path: temp/
+          key: ${{ runner.os }}-elkondo
+
+      - name: Step 2 - Generate yml and Deploy
+        env:
+          bucket: ${{ secrets.BUCKET_PROD }}
+          cloudid: ${{ secrets.CLOUDID }}
+          elasticuser: ${{ secrets.ELASTICUSER }}
+          delete: ${{ secrets.DELETE }}
+          index: "production"
+        run: | 
+          chmod +x step2.sh
+          curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
+          tar xzvf functionbeat-8.3.2-linux-x86_64.tar.gz
+          cd functionbeat-8.3.2-linux-x86_64
+          mv pkg/ ../
+          mv functionbeat ../
+          cd ..
+          chmod +x functionbeat
+          ./functionbeat version
+          ./step2.sh $bucket $index $cloudid $elasticuser $delete
+
+  

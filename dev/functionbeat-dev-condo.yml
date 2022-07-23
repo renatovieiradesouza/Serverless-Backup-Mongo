@@ -56,7 +56,7 @@ functionbeat.provider.aws.functions:
 
     # List of cloudwatch log group registered to that function.
     triggers:
-      - log_group_name: /aws/lambda/condo-loan-asyc-dev-address-ocr-finished
+      #- log_group_name: /aws/lambda/condo-loan-asyc-dev-address-ocr-finished
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-banker-document-update
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-check-expired-order
       - log_group_name: /aws/lambda/condo-loan-asyc-dev-company-moved
