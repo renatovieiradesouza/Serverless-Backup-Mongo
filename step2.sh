@@ -93,7 +93,7 @@ processors:
     for i in $(seq $countLog)
     do
         mount_cli=`echo "${log}" | sed -n "${i}p"`
-        #echo $mount_cli
+        echo $mount_cli
         run_=`$mount_cli | egrep logGroupName`
         if [ $? -eq 0 ]; then
             let with_subscription=with_subscription+1
@@ -102,11 +102,11 @@ processors:
         fi
 
         #run_=`$mount_cli | egrep logGroupName  > /dev/null`
-        #echo $run_
+        echo $run_
     done
 
-    #echo "with_subscription $with_subscription"
-    #echo "without_subscription $without_subscription"
+    echo "with_subscription $with_subscription"
+    echo "without_subscription $without_subscription"
     
 
     if [ "${to_remove}" = "remove" ]; then
@@ -116,6 +116,7 @@ processors:
             echo "Bypass lambda Elastic"
 
         else
+
             echo "removendo $name_log_group"
             ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
     
