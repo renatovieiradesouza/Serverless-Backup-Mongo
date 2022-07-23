@@ -23,7 +23,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
           aws-region: ${{ secrets.AWS_REGION_DEV }}
 
-      - name: Prepare files
+      - name: Step 1 - Prepare files
         run: | 
           chmod +x step1.sh
           ./step1.sh -d elkondo
@@ -33,11 +33,12 @@ jobs:
           path: temp/
           key: ${{ runner.os }}-elkondo
 
-      - name: Generate files
+      - name: Step 2 - Generate yml and Deploy
         env:
           bucket: ${{ secrets.BUCKET_DEV }}
           cloudid: ${{ secrets.CLOUDID }}
           elasticuser: ${{ secrets.ELASTICUSER }}
+          delete: ${{ secrets.DELETE }}
           index: "development"
         run: | 
           chmod +x step2.sh
@@ -49,7 +50,7 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
-          ./step2.sh $bucket $index $cloudid $elasticuser
+          ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
 
   # deploy-elastic-search-stg:
