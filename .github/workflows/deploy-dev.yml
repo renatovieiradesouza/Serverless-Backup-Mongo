@@ -31,7 +31,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-dev
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -70,7 +70,7 @@ jobs:
       - name: Step 1 - Prepare files
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo
+          ./step1.sh -d elkondo-stg
 
       - uses: actions/cache@v3
         with:
@@ -114,7 +114,7 @@ jobs:
       - name: Step 1 - Prepare files
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo
+          ./step1.sh -d elkondo-prod
 
       - uses: actions/cache@v3
         with:
