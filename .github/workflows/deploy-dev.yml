@@ -5,7 +5,7 @@ on:
     tags:
       - elkondo*
   schedule:
-    - cron:  '2 * * * *'    # At every 2th hours
+    - cron:  '0 */2 * * *'    # At every 2th hours
 
 jobs:
   deploy-elastic-search-dev:
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-dev
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -70,12 +70,12 @@ jobs:
       - name: Step 1 - Prepare files
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo
+          ./step1.sh -d elkondo-stg
 
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-stg
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -114,12 +114,12 @@ jobs:
       - name: Step 1 - Prepare files
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo
+          ./step1.sh -d elkondo-prod
 
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-prod
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -138,6 +138,7 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
+          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   
