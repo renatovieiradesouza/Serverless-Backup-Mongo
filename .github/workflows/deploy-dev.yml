@@ -50,6 +50,7 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
+          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   deploy-elastic-search-stg:
@@ -94,6 +95,7 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
+          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   deploy-elastic-search-prod:
@@ -138,6 +140,7 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
+          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   
