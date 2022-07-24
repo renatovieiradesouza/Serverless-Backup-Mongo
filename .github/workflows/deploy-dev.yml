@@ -50,7 +50,6 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
-          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   deploy-elastic-search-stg:
@@ -76,7 +75,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-stg
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -95,7 +94,6 @@ jobs:
           cd ..
           chmod +x functionbeat
           ./functionbeat version
-          aws s3 ls
           ./step2.sh $bucket $index $cloudid $elasticuser $delete
 
   deploy-elastic-search-prod:
@@ -121,7 +119,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo
+          key: ${{ runner.os }}-elkondo-prod
 
       - name: Step 2 - Generate yml and Deploy
         env:
