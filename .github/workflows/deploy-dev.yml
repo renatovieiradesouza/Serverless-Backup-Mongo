@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - elkondo*
+  schedule:
+    - cron:  '2 * * * *'    # At every 2th hours
 
 jobs:
   deploy-elastic-search-dev:
