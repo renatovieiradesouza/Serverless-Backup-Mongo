@@ -5,7 +5,7 @@
 #Functions
 
 send_msg_webhook(){
-    curl -H "Content-Type: application/json" -d "{'text': '${1}'}" https://livrefinanceira.webhook.office.com/webhookb2/356e4cab-c456-4560-9234-5b01b65bd872@b356ff48-3625-401d-8619-ccbdb542e5cd/IncomingWebhook/83fcf8e0163f4683b965ad89dd4b7b9d/d064d489-5b81-4e07-8e7f-cbd1ca322884
+   curl -H 'Content-Type: application/json' -d "{\"text\": \"${1}\"}" https://livrefinanceira.webhook.office.com/webhookb2/356e4cab-c456-4560-9234-5b01b65bd872@b356ff48-3625-401d-8619-ccbdb542e5cd/IncomingWebhook/83fcf8e0163f4683b965ad89dd4b7b9d/d064d489-5b81-4e07-8e7f-cbd1ca322884
 }
 
 #  cada novo deploy, valida se já foi implanted, caso não, segue toda esteira
@@ -126,8 +126,7 @@ processors:
             echo "removendo $name_log_group"
             ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
 
-            notification_remove=`echo "Running remove: $name_log_group"`
-            send_msg_webhook $notification_remove
+            send_msg_webhook "Running remove: $name_log_group"
     
         fi
 
@@ -141,8 +140,7 @@ processors:
 
         else
 
-            notification_update=`echo "Running update: $name_log_group"`
-            send_msg_webhook $notification_update
+            send_msg_webhook "Running update: $name_log_group"
 
             chmod +x functionbeat
             ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
@@ -160,8 +158,7 @@ processors:
 
         else
 
-            notification_deploy=`echo "Running deploy: $name_log_group"`
-            send_msg_webhook $notification_deploy
+            send_msg_webhook "Running deploy: $name_log_group"
 
             chmod +x functionbeat
             ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
