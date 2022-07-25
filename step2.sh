@@ -115,6 +115,16 @@ processors:
     echo "without_subscription $without_subscription"
     
 
+    if [[ "$without_subscription" -gt 0 ]]; then
+
+        if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+            echo "Bypass lambda Elastic"
+        else
+            send_msg_webhook "Running deploy: $name_log_group"
+        fi
+
+    fi
+
     if [ "${to_remove}" = "remove" ]; then
     
         if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
@@ -125,8 +135,6 @@ processors:
 
             echo "removendo $name_log_group"
             ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
-
-            send_msg_webhook "Running remove: $name_log_group"
     
         fi
 
@@ -139,8 +147,6 @@ processors:
             echo "Bypass lambda Elastic"
 
         else
-
-            send_msg_webhook "Running update: $name_log_group"
 
             chmod +x functionbeat
             ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
@@ -157,8 +163,6 @@ processors:
             echo "Bypass lambda Elastic"
 
         else
-
-            send_msg_webhook "Running deploy: $name_log_group"
 
             chmod +x functionbeat
             ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
