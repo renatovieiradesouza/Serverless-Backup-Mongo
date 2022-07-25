@@ -90,86 +90,86 @@ processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~ " > temp/generate/"elk"$name_log_group.yml
 
-    # log=`echo "${path_log_group}" | sed 's/      //' | sed 's/- log_group_name:/aws logs describe-subscription-filters --log-group-name/'`
-    # countLog=`echo "${log}" | wc -l`
-    # validate_elk_lambda_mother=`echo elk$name_log_group | sed 's/elkelk.*/bypass/'`
+    log=`echo "${path_log_group}" | sed 's/      //' | sed 's/- log_group_name:/aws logs describe-subscription-filters --log-group-name/'`
+    countLog=`echo "${log}" | wc -l`
+    validate_elk_lambda_mother=`echo elk$name_log_group | sed 's/elkelk.*/bypass/'`
      
-    # without_subscription=0
-    # with_subscription=0
-    # for i in $(seq $countLog)
-    # do
-    #     mount_cli=`echo "${log}" | sed -n "${i}p"`
-    #     echo $mount_cli
-    #     run_=`$mount_cli | egrep logGroupName`
-    #     if [ $? -eq 0 ]; then
-    #         let with_subscription=with_subscription+1
-    #     else
-    #         let without_subscription=without_subscription+1
-    #     fi
+    without_subscription=0
+    with_subscription=0
+    for i in $(seq $countLog)
+    do
+        mount_cli=`echo "${log}" | sed -n "${i}p"`
+        echo $mount_cli
+        run_=`$mount_cli | egrep logGroupName`
+        if [ $? -eq 0 ]; then
+            let with_subscription=with_subscription+1
+        else
+            let without_subscription=without_subscription+1
+        fi
 
-    #     #run_=`$mount_cli | egrep logGroupName  > /dev/null`
-    #     echo $run_
-    # done
+        #run_=`$mount_cli | egrep logGroupName  > /dev/null`
+        echo $run_
+    done
 
-    # echo "with_subscription $with_subscription"
-    # echo "without_subscription $without_subscription"
+    echo "with_subscription $with_subscription"
+    echo "without_subscription $without_subscription"
     
 
-    # if [ "${to_remove}" = "remove" ]; then
+    if [ "${to_remove}" = "remove" ]; then
     
-    #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+        if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
 
-    #         echo "Bypass lambda Elastic"
+            echo "Bypass lambda Elastic"
 
-    #     else
+        else
 
-    #         echo "removendo $name_log_group"
-    #         ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+            echo "removendo $name_log_group"
+            ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
 
-    #         notification_remove=`echo "Running remove: $name_log_group"`
-    #         send_msg_webhook $notification_remove
+            notification_remove=`echo "Running remove: $name_log_group"`
+            send_msg_webhook $notification_remove
     
-    #     fi
+        fi
 
-    # elif [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
+    elif [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
         
-    #     echo "Running update: $name_log_group"
+        echo "Running update: $name_log_group"
 
-    #     notification_update=`echo "Running update: $name_log_group"`
-    #     send_msg_webhook $notification_update
+        notification_update=`echo "Running update: $name_log_group"`
+        send_msg_webhook $notification_update
         
-    #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+        if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
 
-    #         echo "Bypass lambda Elastic"
+            echo "Bypass lambda Elastic"
 
-    #     else
+        else
 
-    #         chmod +x functionbeat
-    #         ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
-    #         #Verificar retorno com $? e notificar em caso de erro no teams
+            chmod +x functionbeat
+            ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+            #Verificar retorno com $? e notificar em caso de erro no teams
 
-    #     fi
+        fi
     
-    # elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
+    elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
 
-    #     echo "Running deploy: $name_log_group"
+        echo "Running deploy: $name_log_group"
 
-    #     notification_deploy=`echo "Running deploy: $name_log_group"`
-    #     send_msg_webhook $notification_deploy
+        notification_deploy=`echo "Running deploy: $name_log_group"`
+        send_msg_webhook $notification_deploy
 
-    #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+        if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
             
-    #         echo "Bypass lambda Elastic"
+            echo "Bypass lambda Elastic"
 
-    #     else
+        else
 
-    #         chmod +x functionbeat
-    #         ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
-    #         #Verificar retorno com $? e notificar em caso de erro no teams   
+            chmod +x functionbeat
+            ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+            #Verificar retorno com $? e notificar em caso de erro no teams   
 
-    #     fi
-    # else
-    #     echo "Nothing now"
-    # fi
+        fi
+    else
+        echo "Nothing now"
+    fi
 
 done
