@@ -2,6 +2,12 @@
 
 #set -x
 
+#Functions
+
+send_msg_webhook(){
+   curl -H 'Content-Type: application/json' -d "{\"text\": \"${1}\"}" https://livrefinanceira.webhook.office.com/webhookb2/356e4cab-c456-4560-9234-5b01b65bd872@b356ff48-3625-401d-8619-ccbdb542e5cd/IncomingWebhook/83fcf8e0163f4683b965ad89dd4b7b9d/d064d489-5b81-4e07-8e7f-cbd1ca322884
+}
+
 #  cada novo deploy, valida se já foi implanted, caso não, segue toda esteira
 #  caso já tenha sido. roda update
 
@@ -108,6 +114,16 @@ processors:
     echo "with_subscription $with_subscription"
     echo "without_subscription $without_subscription"
     
+
+    if [[ "$without_subscription" -gt 0 ]]; then
+
+        if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+            echo "Bypass lambda Elastic"
+        else
+            send_msg_webhook "Running deploy: $name_log_group"
+        fi
+
+    fi
 
     if [ "${to_remove}" = "remove" ]; then
     
