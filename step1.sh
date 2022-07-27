@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Var devem vir do github variaveis
-env_ecs="dev"
-env_ecs_rule="dev" #Apply between stg and prod. For stg use staging and prod use production
+env_ecs="${1}" #$ENV_ECS_DEV
+env_ecs_rule="${2}" #Apply between stg and prod. For stg use staging and prod use production $ENV_ECS_RULE_DEV
 
 #Functions
 
