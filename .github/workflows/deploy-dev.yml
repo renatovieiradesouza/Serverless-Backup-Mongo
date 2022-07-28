@@ -24,9 +24,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION_DEV }}
 
       - name: Step 1 - Prepare files
+        env:
+          env_ecs: ${{ secrets.ENV_ECS_DEV }}
+          env_ecs_rule: ${{ secrets.ENV_ECS_RULE_DEV }}
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo
+          ./step1.sh $env_ecs $env_ecs_rule -d elkondo
 
       - uses: actions/cache@v3
         with:
@@ -40,6 +43,7 @@ jobs:
           elasticuser: ${{ secrets.ELASTICUSER }}
           delete: ${{ secrets.DELETE }}
           index: "development"
+          
         run: | 
           chmod +x step2.sh
           curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
@@ -68,9 +72,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION_STG }}
 
       - name: Step 1 - Prepare files
+        env:
+          env_ecs: ${{ secrets.ENV_ECS_STG }}
+          env_ecs_rule: ${{ secrets.ENV_ECS_RULE_STG }}
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo-stg
+          ./step1.sh $env_ecs $env_ecs_rule -d elkondo-stg
 
       - uses: actions/cache@v3
         with:
@@ -112,9 +119,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION_PROD }}
 
       - name: Step 1 - Prepare files
+        env:
+          env_ecs: ${{ secrets.ENV_ECS_PROD }}
+          env_ecs_rule: ${{ secrets.ENV_ECS_RULE_PROD }}
         run: | 
           chmod +x step1.sh
-          ./step1.sh -d elkondo-prod
+          ./step1.sh $env_ecs $env_ecs_rule -d elkondo-prod
 
       - uses: actions/cache@v3
         with:
@@ -128,6 +138,7 @@ jobs:
           elasticuser: ${{ secrets.ELASTICUSER }}
           delete: ${{ secrets.DELETE }}
           index: "production"
+
         run: | 
           chmod +x step2.sh
           curl -L -O https://artifacts.elastic.co/downloads/beats/functionbeat/functionbeat-8.3.2-linux-x86_64.tar.gz
