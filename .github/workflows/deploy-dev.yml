@@ -34,7 +34,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo-dev
+          key: ${{ runner.os }}-elkondo-dev-$GITHUB_JOB
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -82,7 +82,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo-stg
+          key: ${{ runner.os }}-elkondo-stg-$GITHUB_JOB
 
       - name: Step 2 - Generate yml and Deploy
         env:
@@ -129,7 +129,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: temp/
-          key: ${{ runner.os }}-elkondo-prod
+          key: ${{ runner.os }}-elkondo-prod-$GITHUB_JOB
 
       - name: Step 2 - Generate yml and Deploy
         env:
