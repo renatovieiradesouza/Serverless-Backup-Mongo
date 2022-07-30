@@ -116,7 +116,7 @@ processors:
             if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
                 echo "Bypass lambda Elastic"
             else
-                send_msg_webhook "$name_log_group  - ${2} - $run_ -  without_subscription $without_subscription"
+                send_msg_webhook "$name_log_group  - ${2} - $log -  without_subscription $without_subscription"
             fi
 
         fi
