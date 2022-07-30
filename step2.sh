@@ -47,16 +47,16 @@ generate_and_deploy(){
     for i in $(seq ${1})
     do
 
-    line_log_group=`find temp -name "file.txt" | sed -n "${i}p"`
-    path_log_group=`cat ${line_log_group}`
+        line_log_group=`find temp -name "file.txt" | sed -n "${i}p"`
+        path_log_group=`cat ${line_log_group}`
 
-    if [ "$line_log_group" = "temp/others/file.txt" ]; then
-        name_log_group="others"
-    elif [ "$line_log_group" = "temp/ecs/file.txt" ]; then
-        name_log_group="ecs"
-    else 
-        name_log_group=`awk '{print $3}' $line_log_group | cut -c 13-17 | sed 's/-//' | head -n 1`
-    fi
+        if [ "$line_log_group" = "temp/others/file.txt" ]; then
+            name_log_group="others"
+        elif [ "$line_log_group" = "temp/ecs/file.txt" ]; then
+            name_log_group="ecs"
+        else 
+            name_log_group=`awk '{print $3}' $line_log_group | cut -c 13-17 | sed 's/-//' | head -n 1`
+        fi
 
         echo "functionbeat.provider.aws.endpoint: \"s3.amazonaws.com\"
 functionbeat.provider.aws.deploy_bucket: \"${2}\"
@@ -86,87 +86,87 @@ processors:
     - add_host_metadata: ~
     - add_cloud_metadata: ~ " > temp/generate/"elk"$name_log_group.yml
 
-        # log=`echo "${path_log_group}" | sed 's/      //' | sed 's/- log_group_name:/aws logs describe-subscription-filters --log-group-name/'`
-        # countLog=`echo "${log}" | wc -l`
-        # validate_elk_lambda_mother=`echo elk$name_log_group | sed 's/elkelk.*/bypass/'`
+        log=`echo "${path_log_group}" | sed 's/      //' | sed 's/- log_group_name:/aws logs describe-subscription-filters --log-group-name/'`
+        countLog=`echo "${log}" | wc -l`
+        validate_elk_lambda_mother=`echo elk$name_log_group | sed 's/elkelk.*/bypass/'`
         
-        # without_subscription=0
-        # with_subscription=0
+        without_subscription=0
+        with_subscription=0
 
-        # for i in $(seq $countLog)
-        # do
-        #     mount_cli=`echo "${log}" | sed -n "${i}p"`
-        #     echo $mount_cli
-        #     run_=`$mount_cli | egrep logGroupName`
+        for i in $(seq $countLog)
+        do
+            mount_cli=`echo "${log}" | sed -n "${i}p"`
+            echo $mount_cli
+            run_=`$mount_cli | egrep logGroupName`
 
-        #     if [ $? -eq 0 ]; then
-        #         let with_subscription=with_subscription+1
-        #     else
-        #         let without_subscription=without_subscription+1
-        #     fi
+            if [ $? -eq 0 ]; then
+                let with_subscription=with_subscription+1
+            else
+                let without_subscription=without_subscription+1
+            fi
 
-        #     echo $run_
-        # done
+            echo $run_
+        done
 
-        # echo "with_subscription $with_subscription"
-        # echo "without_subscription $without_subscription"
+        echo "with_subscription $with_subscription"
+        echo "without_subscription $without_subscription"
         
-        # if [[ "$without_subscription" -gt 0 ]]; then
+        if [[ "$without_subscription" -gt 0 ]]; then
 
-        #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
-        #         echo "Bypass lambda Elastic"
-        #     else
-        #         send_msg_webhook "$name_log_group  - ${2} - $run_ -  without_subscription $without_subscription"
-        #     fi
+            if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+                echo "Bypass lambda Elastic"
+            else
+                send_msg_webhook "$name_log_group  - ${2} - $run_ -  without_subscription $without_subscription"
+            fi
 
-        # fi
+        fi
 
-        # if [ "${6}" = "remove" ]; then
+        if [ "${6}" = "remove" ]; then
         
-        #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+            if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
 
-        #         echo "Bypass lambda Elastic"
+                echo "Bypass lambda Elastic"
 
-        #     else
+            else
 
-        #         echo "removendo $name_log_group"
-        #         ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                echo "removendo $name_log_group"
+                ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
         
-        #     fi
+            fi
 
-        # elif [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
+        elif [[ "$with_subscription" -gt 0 && "$without_subscription" -gt 0 ]]; then
             
-        #     echo "Running update: $name_log_group"
+            echo "Running update: $name_log_group"
             
-        #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+            if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
 
-        #         echo "Bypass lambda Elastic"
+                echo "Bypass lambda Elastic"
 
-        #     else
+            else
 
-        #         chmod +x functionbeat
-        #         ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
-        #         #Verificar retorno com $? e notificar em caso de erro no teams
+                chmod +x functionbeat
+                ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                #Verificar retorno com $? e notificar em caso de erro no teams
 
-        #     fi
+            fi
         
-        # elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
+        elif [[ "$with_subscription" -eq 0 && "$without_subscription" -gt 0 ]]; then
 
-        #     echo "Running deploy: $name_log_group"
+            echo "Running deploy: $name_log_group"
 
-        #     if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
+            if [[ "${validate_elk_lambda_mother}" = "bypass" ]]; then
                 
-        #         echo "Bypass lambda Elastic"
+                echo "Bypass lambda Elastic"
 
-        #     else
+            else
 
-        #         chmod +x functionbeat
-        #         ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                chmod +x functionbeat
+                ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
 
-        #     fi
-        # else
-        #     echo "Nothing now"
-        # fi
+            fi
+        else
+            echo "Nothing now"
+        fi
 
     done
 }
