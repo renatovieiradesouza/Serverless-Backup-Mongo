@@ -130,7 +130,7 @@ processors:
             else
 
                 echo "removendo $name_log_group"
-                ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml
         
             fi
 
@@ -145,7 +145,8 @@ processors:
             else
 
                 chmod +x functionbeat
-                ./functionbeat -v -e -d '*' update "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+                ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
                 #Verificar retorno com $? e notificar em caso de erro no teams
 
             fi
@@ -161,7 +162,8 @@ processors:
             else
 
                 chmod +x functionbeat
-                ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml > /dev/null
+                ./functionbeat -v -e -d '*' remove "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
+                ./functionbeat -v -e -d '*' deploy "elk"$name_log_group -c temp/generate/"elk"$name_log_group.yml 
 
             fi
         else
