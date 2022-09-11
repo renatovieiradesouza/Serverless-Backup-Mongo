@@ -18,6 +18,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+mongoBackup/python
 build/
 develop-eggs/
 dist/
@@ -174,3 +175,24 @@ cython_debug/
 .serverless
 
 # End of https://www.toptal.com/developers/gitignore/api/python,serverless
+
+# Distribution / packaging
+.Python
+mongoBackup/build/
+mongoBackup/python
+mongoBackup/develop-eggs/
+mongoBackup/dist/
+mongoBackup/downloads/
+mongoBackup/eggs/
+mongoBackup/.eggs/
+mongoBackup/lib/
+mongoBackup/lib64/
+mongoBackup/parts/
+mongoBackup/sdist/
+mongoBackup/var/
+mongoBackup/*.egg-info/
+mongoBackup/.installed.cfg
+mongoBackup/*.egg
+
+# Serverless directories
+mongoBackup/.serverless
