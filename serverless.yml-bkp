@@ -1,0 +1,54 @@
+service: qi-tech
+frameworkVersion: '3'
+variablesResolutionMode: 20210326
+
+custom:
+  documentation:
+    version: '1.0'
+    title: 'Backup Mongo To AWS S3'
+    description: 'Create a snapshot and send to AWS S3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 512
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+  stage: ${opt:stage, 'local'}
+  region: ${opt:region, 'us-east-1'}
+  timeout: 30
+  environment:
+    APPLICATION_ENVIRONMENT: ${opt:stage, 'local'}
+    LAMBDA_AWS_REGION: ${opt:region, 'us-east-1'}
+    API_KEY: ${self:custom.environment.QI_API_KEY}
+    QI_URL: ${self:custom.environment.QI_AUTH_API}
+    CONDO_PRIVATE_KEY: ${self:custom.environment.QI_CONDO_PRIVATE_KEY}
+    QI_PUBLIC_KEY: ${self:custom.environment.QI_PUBLIC_KEY}
+    X_TOKEN: ${self:custom.environment.X_TOKEN}
+    SQS_QUEUE_URL: https://sqs.${self:provider.region}.amazonaws.com/${aws:accountId}/
+
+
+functions:
+  generate-backup:
+    handler: src/atlas_mongo.generateBackup
+    description: Create a snapshot and send to AWS S3
+    environment:
+      DYNAMODB_CONNECTION: ${self:custom.environment.DYNAMODB_CONNECTION}
+    events:
+      - http:
+          path: policy/{key}
+          method: get
+          documentation:
+            summary: "Gets the configured credit policy according to the given key"
+            description: "Pass the key to know the matrix configuration"
+            pathParams:
+              - name: "key"
+                description: "The policy key"
+                schema:
+                  type: "string"
+            methodResponses:
+              - statusCode: 200
+                responseBody:
+                  description: "Response with the policy matrices"
+                responseModels:
+                  application/json: "ResponsePolicy"
