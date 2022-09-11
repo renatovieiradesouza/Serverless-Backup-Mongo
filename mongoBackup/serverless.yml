@@ -1,4 +1,4 @@
-service: mongoBackup
+service: mongobackup
 frameworkVersion: '3'
 
 provider:
@@ -31,7 +31,7 @@ custom:
 
 functions:
   backup:
-    handler: src/createSnapshotToAWSS3.generateBackup
+    handler: src/create-snapshot.generateBackup
     events:
       # - sqs:
       #     arn: arn:aws:sqs:sa-east-1:168984433384:queueMongoBackupToS3
@@ -46,7 +46,7 @@ functions:
       - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
       - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
   exportToS3:
-    handler: src/moveSnapshotToAWSS3.generateExport
+    handler: src/move-snapshot.generateExport
     events:
       - schedule: cron(0/15 * * * ? *)
     environment:

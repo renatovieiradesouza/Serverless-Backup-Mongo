@@ -9,34 +9,33 @@ from dotenv import load_dotenv
 import os
 import boto3
 
+#Setup
 urllib3.disable_warnings()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 load_dotenv()
 
 def generateBackup(event,context):
-  USERNAME = os.getenv('USERNAME')
-  PASSWORD = os.getenv('PASSWORD')
-  SQS_QUEUE_URL = os.getenv('SQS_QUEUE_URL')
 
-  dateNow = datetime.datetime.now()
-  descriptionSnapshot=("QueuedByAWSLambda-{}")
-  logger.info(SQS_QUEUE_URL)
-  
-  #Queued a Snapshot
-  url = f"https://cloud.mongodb.com/api/atlas/v1.0/groups/6126d382372961609c82001a/clusters/production/backup/snapshots?pretty=true"
+  USERNAME            = os.getenv('USERNAME')
+  PASSWORD            = os.getenv('PASSWORD')
+  SQS_QUEUE_URL       = os.getenv('SQS_QUEUE_URL')
+  dateNow             = datetime.datetime.now()
+  descriptionSnapshot = ("QueuedByAWSLambda-{}")
+  url                 = f"https://cloud.mongodb.com/api/atlas/v1.0/groups/6126d382372961609c82001a/clusters/production/backup/snapshots?pretty=true"
 
   payload = json.dumps({
     "description": descriptionSnapshot.format(dateNow),
     "retentionInDays": 1
   })
+
   headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
 
   response = requests.request("POST", url, headers=headers, data=payload,auth=HTTPDigestAuth(USERNAME, PASSWORD))
-  retorno=json.loads(response.text)
+  retorno  = json.loads(response.text)
 
   logger.info(response.text)
   logger.info(f"Status code: {response.status_code}")
@@ -48,10 +47,10 @@ def generateBackup(event,context):
 
 def send_message(queue,keyMessage,bodyMessage):
     sqs_client = boto3.client("sqs", region_name="sa-east-1")
+    message    = {keyMessage: bodyMessage}
 
-    message = {keyMessage: bodyMessage}
     response = sqs_client.send_message(
         QueueUrl=queue,
         MessageBody=json.dumps(message)
     )
-    print(response)
+    logger.info(response)

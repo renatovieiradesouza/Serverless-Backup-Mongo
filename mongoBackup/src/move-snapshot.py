@@ -15,26 +15,21 @@ logger.setLevel(logging.INFO)
 load_dotenv()
 
 def generateExport(event,context):
-  USERNAME = os.getenv('USERNAME')
-  PASSWORD = os.getenv('PASSWORD')
-  SQS_QUEUE_URL = os.getenv('SQS_QUEUE_URL')
+  USERNAME            = os.getenv('USERNAME')
+  PASSWORD            = os.getenv('PASSWORD')
+  SQS_QUEUE_URL       = os.getenv('SQS_QUEUE_URL')
+  dateNow             = datetime.datetime.now()
+  descriptionSnapshot = ("QueuedByAWSLambda-{}")
+  snapshotID          = receive_message(SQS_QUEUE_URL)
+  bucketID            = "6318dbf4f5f674698e029f48"
 
-  dateNow = datetime.datetime.now()
-  descriptionSnapshot=("QueuedByAWSLambda-{}")
-  logger.info(SQS_QUEUE_URL)
-
-  snapshotID = receive_message(SQS_QUEUE_URL)
-  logger.info(f"ID FOR TRIGGER API {snapshotID}")
-
-  #Queued export to AWS S3
-
-  logger.info("Starting export to AWS S3 in 5 minutes seconds")
+  logger.info(f"Starting export to AWS S3 from ID  {snapshotID}")
   
   urlT = f"https://cloud.mongodb.com/api/atlas/v1.0/groups/6126d382372961609c82001a/clusters/production/backup/exports/"
 
   payloadT = json.dumps({
     "snapshotId": snapshotID,
-    "exportBucketId": "6318dbf4f5f674698e029f48",
+    "exportBucketId": bucketID,
     "customData": [
       {
         "key": "exported by lambda",
@@ -67,12 +62,12 @@ def receive_message(queue):
 
   for message in response.get("Messages", []):
       message_body = message["Body"]
-      messageOk = json.loads(message_body)
-      id = messageOk["snapshot"]
-      handle = message['ReceiptHandle']
-      # print(f"Message body: {json.loads(message_body)}")
-      # print(f"Receipt Handle: {message['ReceiptHandle']}")
+      messageOk    = json.loads(message_body)
+      id           = messageOk["snapshot"]
+      handle       = message['ReceiptHandle']
+
       logger.info(f"ID Snapshot: {id}")
+      
       delete_message(handle,queue)
       return id
   
