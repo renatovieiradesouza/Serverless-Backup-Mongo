@@ -35,13 +35,13 @@ def generateBackup(event,context):
   }
 
   response = requests.request("POST", url, headers=headers, data=payload,auth=HTTPDigestAuth(USERNAME, PASSWORD))
-  retorno  = json.loads(response.text)
+  dataResponse  = json.loads(response.text)
 
   logger.info(response.text)
   logger.info(f"Status code: {response.status_code}")
-  logger.info(retorno["id"])
+  logger.info(dataResponse["id"])
 
-  send_message(SQS_QUEUE_URL,"snapshot",retorno["id"])
+  send_message(SQS_QUEUE_URL,"snapshot",dataResponse["id"])
 
   return response.status_code
 
