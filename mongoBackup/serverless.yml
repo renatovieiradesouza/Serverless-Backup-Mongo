@@ -14,7 +14,7 @@ provider:
       - subnet-0ebd4ddfa425f0a3a
       - subnet-0a78c2d6d0a979f4a
   environment:
-    SQS_QUEUE_URL: https://sqs.sa-east-1.amazonaws.com/168984433384/mongoBackupToS3Queue
+    SQS_QUEUE_URL: { Ref: MongoBackup }
   iamRoleStatements:
       - Effect: "Allow"
         Action:
@@ -51,4 +51,14 @@ functions:
       - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
       - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
       
-      
+# Resources
+
+resources:
+  Resources:
+    MongoBackup:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: mongo-backup
+        RedrivePolicy:
+          maxReceiveCount: 1
+        VisibilityTimeout: 600
