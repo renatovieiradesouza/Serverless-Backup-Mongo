@@ -1,0 +1,594 @@
+{
+  "service": {
+    "service": "mongobackup",
+    "serviceObject": {
+      "name": "mongobackup"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "python3.8",
+      "memorySize": 128,
+      "region": "sa-east-1",
+      "timeout": 800,
+      "vpc": {
+        "securityGroupIds": [
+          "sg-047559b8131f3b2cc"
+        ],
+        "subnetIds": [
+          "subnet-0ebd4ddfa425f0a3a",
+          "subnet-0a78c2d6d0a979f4a"
+        ]
+      },
+      "environment": {
+        "SQS_QUEUE_URL": "https://sqs.sa-east-1.amazonaws.com/168984433384/mongoBackupToS3Queue"
+      },
+      "iamRoleStatements": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "lambda:InvokeFunction",
+            "sqs:SendMessage",
+            "sqs:GetQueueUrl",
+            "sqs:ListQueues",
+            "sqs:ReceiveMessage",
+            "sqs:DeleteMessage"
+          ],
+          "Resource": "*"
+        }
+      ],
+      "stage": "dev",
+      "versionFunctions": true,
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketEncryption": {
+                "ServerSideEncryptionConfiguration": [
+                  {
+                    "ServerSideEncryptionByDefault": {
+                      "SSEAlgorithm": "AES256"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ServerlessDeploymentBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "ServerlessDeploymentBucket"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "s3:*",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Resource": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            },
+                            "/*"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            }
+                          ]
+                        ]
+                      }
+                    ],
+                    "Condition": {
+                      "Bool": {
+                        "aws:SecureTransport": false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "BackupLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/mongobackup-production-backup"
+            }
+          },
+          "ExportToS3LogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/mongobackup-production-exportToS3"
+            }
+          },
+          "IamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "mongobackup",
+                        "production",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:CreateLogGroup"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/mongobackup-production*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/mongobackup-production*:*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][0]"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "mongobackup",
+                    "production",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              },
+              "ManagedPolicyArns": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          "BackupLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/mongobackup/production/1662954995413-2022-09-12T03:56:35.413Z/mongobackup.zip"
+              },
+              "Handler": "src/create-snapshot.generateBackup",
+              "Runtime": "python3.8",
+              "FunctionName": "mongobackup-production-backup",
+              "MemorySize": 128,
+              "Timeout": 800,
+              "Environment": {
+                "Variables": {
+                  "SQS_QUEUE_URL": "https://sqs.sa-east-1.amazonaws.com/168984433384/mongoBackupToS3Queue",
+                  "USERNAME": "tkqiaxhf",
+                  "PASSWORD": "d539c5e3-415f-4195-8012-6fc94d5a17b3"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "VpcConfig": {
+                "SecurityGroupIds": {
+                  "$ref": "$[\"service\"][\"provider\"][\"vpc\"][\"securityGroupIds\"]"
+                },
+                "SubnetIds": {
+                  "$ref": "$[\"service\"][\"provider\"][\"vpc\"][\"subnetIds\"]"
+                }
+              },
+              "Layers": [
+                "arn:aws:lambda:sa-east-1:168984433384:layer:requests:1",
+                "arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1"
+              ]
+            },
+            "DependsOn": [
+              "BackupLogGroup"
+            ]
+          },
+          "ExportToS3LambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/mongobackup/production/1662954995413-2022-09-12T03:56:35.413Z/mongobackup.zip"
+              },
+              "Handler": "src/move-snapshot.generateExport",
+              "Runtime": "python3.8",
+              "FunctionName": "mongobackup-production-exportToS3",
+              "MemorySize": 128,
+              "Timeout": 800,
+              "Environment": {
+                "Variables": {
+                  "SQS_QUEUE_URL": "https://sqs.sa-east-1.amazonaws.com/168984433384/mongoBackupToS3Queue",
+                  "USERNAME": "tkqiaxhf",
+                  "PASSWORD": "d539c5e3-415f-4195-8012-6fc94d5a17b3"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "VpcConfig": {
+                "SecurityGroupIds": {
+                  "$ref": "$[\"service\"][\"provider\"][\"vpc\"][\"securityGroupIds\"]"
+                },
+                "SubnetIds": {
+                  "$ref": "$[\"service\"][\"provider\"][\"vpc\"][\"subnetIds\"]"
+                }
+              },
+              "Layers": [
+                "arn:aws:lambda:sa-east-1:168984433384:layer:requests:1",
+                "arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1"
+              ]
+            },
+            "DependsOn": [
+              "ExportToS3LogGroup"
+            ]
+          },
+          "BackupLambdaVersionqesUulgRtYGsoGHYTYEjmZ7YpDVNYaWxPygE1uZqjJI": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "BackupLambdaFunction"
+              },
+              "CodeSha256": "JoMtnzJ8hxr2haJ/zxQ3ZAySqbFejiQJSF3tAU2LeeE="
+            }
+          },
+          "ExportToS3LambdaVersion9gBgfPyThoJPfeGqzIL9pk8oXNCeLG33mbBcSVR1tE": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ExportToS3LambdaFunction"
+              },
+              "CodeSha256": "JoMtnzJ8hxr2haJ/zxQ3ZAySqbFejiQJSF3tAU2LeeE="
+            }
+          },
+          "BackupEventsRuleSchedule1": {
+            "Type": "AWS::Events::Rule",
+            "Properties": {
+              "ScheduleExpression": "cron(0 6,18 ? * SUN-SUN *)",
+              "State": "ENABLED",
+              "Targets": [
+                {
+                  "Arn": {
+                    "Fn::GetAtt": [
+                      "BackupLambdaFunction",
+                      "Arn"
+                    ]
+                  },
+                  "Id": "backupSchedule"
+                }
+              ]
+            }
+          },
+          "BackupLambdaPermissionEventsRuleSchedule1": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "BackupLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "events.amazonaws.com",
+              "SourceArn": {
+                "Fn::GetAtt": [
+                  "BackupEventsRuleSchedule1",
+                  "Arn"
+                ]
+              }
+            }
+          },
+          "ExportToS3EventsRuleSchedule1": {
+            "Type": "AWS::Events::Rule",
+            "Properties": {
+              "ScheduleExpression": "cron(0/15 * * * ? *)",
+              "State": "ENABLED",
+              "Targets": [
+                {
+                  "Arn": {
+                    "Fn::GetAtt": [
+                      "ExportToS3LambdaFunction",
+                      "Arn"
+                    ]
+                  },
+                  "Id": "exportToS3Schedule"
+                }
+              ]
+            }
+          },
+          "ExportToS3LambdaPermissionEventsRuleSchedule1": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "ExportToS3LambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "events.amazonaws.com",
+              "SourceArn": {
+                "Fn::GetAtt": [
+                  "ExportToS3EventsRuleSchedule1",
+                  "Arn"
+                ]
+              }
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            },
+            "Export": {
+              "Name": "sls-mongobackup-production-ServerlessDeploymentBucketName"
+            }
+          },
+          "BackupLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "BackupLambdaVersionqesUulgRtYGsoGHYTYEjmZ7YpDVNYaWxPygE1uZqjJI"
+            },
+            "Export": {
+              "Name": "sls-mongobackup-production-BackupLambdaFunctionQualifiedArn"
+            }
+          },
+          "ExportToS3LambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ExportToS3LambdaVersion9gBgfPyThoJPfeGqzIL9pk8oXNCeLG33mbBcSVR1tE"
+            },
+            "Export": {
+              "Name": "sls-mongobackup-production-ExportToS3LambdaFunctionQualifiedArn"
+            }
+          }
+        }
+      },
+      "coreCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ServerlessDeploymentBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketEncryption": {
+                "ServerSideEncryptionConfiguration": [
+                  {
+                    "ServerSideEncryptionByDefault": {
+                      "SSEAlgorithm": "AES256"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ServerlessDeploymentBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "ServerlessDeploymentBucket"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "s3:*",
+                    "Effect": "Deny",
+                    "Principal": "*",
+                    "Resource": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            },
+                            "/*"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Ref": "ServerlessDeploymentBucket"
+                            }
+                          ]
+                        ]
+                      }
+                    ],
+                    "Condition": {
+                      "Bool": {
+                        "aws:SecureTransport": false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": {
+              "Ref": "ServerlessDeploymentBucket"
+            }
+          }
+        }
+      }
+    },
+    "custom": {
+      "environment": {
+        "PUBLIC_KEY_BACKUP_MONGO_AWS": "tkqiaxhf",
+        "PRIVATE_KEY_BACKUP_MONGO_AWS": "d539c5e3-415f-4195-8012-6fc94d5a17b3",
+        "PRIVATE_SUBNET_1": "subnet-0ebd4ddfa425f0a3a",
+        "PRIVATE_SUBNET_2": "subnet-0a78c2d6d0a979f4a",
+        "SECURITY_GROUP_ID": "sg-047559b8131f3b2cc"
+      }
+    },
+    "pluginsData": {},
+    "functions": {
+      "backup": {
+        "handler": "src/create-snapshot.generateBackup",
+        "events": [
+          {
+            "schedule": "cron(0 6,18 ? * SUN-SUN *)"
+          }
+        ],
+        "environment": {
+          "USERNAME": "tkqiaxhf",
+          "PASSWORD": "d539c5e3-415f-4195-8012-6fc94d5a17b3"
+        },
+        "layers": {
+          "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"BackupLambdaFunction\"][\"Properties\"][\"Layers\"]"
+        },
+        "name": "mongobackup-production-backup",
+        "package": {},
+        "memory": 128,
+        "timeout": 800,
+        "runtime": "python3.8",
+        "vpc": {},
+        "versionLogicalId": "BackupLambdaVersionqesUulgRtYGsoGHYTYEjmZ7YpDVNYaWxPygE1uZqjJI"
+      },
+      "exportToS3": {
+        "handler": "src/move-snapshot.generateExport",
+        "events": [
+          {
+            "schedule": "cron(0/15 * * * ? *)"
+          }
+        ],
+        "environment": {
+          "USERNAME": "tkqiaxhf",
+          "PASSWORD": "d539c5e3-415f-4195-8012-6fc94d5a17b3"
+        },
+        "layers": {
+          "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"ExportToS3LambdaFunction\"][\"Properties\"][\"Layers\"]"
+        },
+        "name": "mongobackup-production-exportToS3",
+        "package": {},
+        "memory": 128,
+        "timeout": 800,
+        "runtime": "python3.8",
+        "vpc": {},
+        "versionLogicalId": "ExportToS3LambdaVersion9gBgfPyThoJPfeGqzIL9pk8oXNCeLG33mbBcSVR1tE"
+      }
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.yml",
+    "initialServerlessConfig": {
+      "service": "mongobackup",
+      "frameworkVersion": "3",
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
+      },
+      "functions": {
+        "$ref": "$[\"service\"][\"functions\"]"
+      }
+    },
+    "layers": {},
+    "isDashboardMonitoringPreconfigured": false,
+    "artifact": "/home/renato/projeto/condo/elkondo/mongoBackup/.serverless/mongobackup.zip"
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/mongobackup/production/1662954995413-2022-09-12T03:56:35.413Z",
+    "artifact": "mongobackup.zip"
+  }
+}
