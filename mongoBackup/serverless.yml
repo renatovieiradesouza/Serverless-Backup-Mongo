@@ -33,12 +33,7 @@ functions:
   backup:
     handler: src/create-snapshot.generateBackup
     events:
-      # - sqs:
-      #     arn: arn:aws:sqs:sa-east-1:168984433384:queueMongoBackupToS3
-      #     batchSize: 10
-      #     maximumBatchingWindow: 300
-      #     functionResponseType: ReportBatchItemFailures
-      - schedule: cron(0 6,18 ? * SUN-SUN *)
+      - schedule: cron(0 6,18 ? * MON-SUN *)
     environment:
       USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
       PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
