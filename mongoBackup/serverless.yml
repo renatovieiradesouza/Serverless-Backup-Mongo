@@ -1,0 +1,59 @@
+service: mongobackup
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  memorySize: 128
+  region: ${opt:region, 'sa-east-1'}
+  timeout: 800
+  vpc:
+    securityGroupIds:
+      - sg-047559b8131f3b2cc
+    subnetIds:
+      - subnet-0ebd4ddfa425f0a3a
+      - subnet-0a78c2d6d0a979f4a
+  environment:
+    SQS_QUEUE_URL: https://sqs.sa-east-1.amazonaws.com/168984433384/mongoBackupToS3Queue
+  iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - lambda:InvokeFunction
+          - sqs:SendMessage
+          - sqs:GetQueueUrl
+          - sqs:ListQueues
+          - sqs:ReceiveMessage
+          - sqs:DeleteMessage
+        Resource: "*"
+    
+custom:
+  environment: ${file(env/${opt:stage, 'local'}.yaml)}
+
+functions:
+  backup:
+    handler: src/create-snapshot.generateBackup
+    events:
+      # - sqs:
+      #     arn: arn:aws:sqs:sa-east-1:168984433384:queueMongoBackupToS3
+      #     batchSize: 10
+      #     maximumBatchingWindow: 300
+      #     functionResponseType: ReportBatchItemFailures
+      - schedule: cron(0 6,18 ? * SUN-SUN *)
+    environment:
+      USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
+      PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
+    layers:
+      - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
+      - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
+  exportToS3:
+    handler: src/move-snapshot.generateExport
+    events:
+      - schedule: cron(0/15 * * * ? *)
+    environment:
+      USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
+      PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
+    layers:
+      - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
+      - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
+      
+      
