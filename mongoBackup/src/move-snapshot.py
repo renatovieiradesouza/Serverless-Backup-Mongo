@@ -42,7 +42,7 @@ def generateExport(event,context):
   }
 
   if snapshotID != "":
-    logger.info(f"Starting export to AWS S3 from ID  {snapshotID}")
+    logger.info(f"Starting export to AWS S3 from ID Snapshot  {snapshotID}")
     responseT = requests.request("POST", urlT, headers=headersT, data=payloadT, auth=HTTPDigestAuth("tkqiaxhf", "d539c5e3-415f-4195-8012-6fc94d5a17b3"))
     logger.info(f"Status code from request move AWS S3 Atlas Mongo: {responseT.status_code}")
     return responseT.status_code
