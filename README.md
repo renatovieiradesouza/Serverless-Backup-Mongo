@@ -2,13 +2,13 @@
 
 <details>
     <summary>ELK Automation</summary>
-    ### Configuração ELK Cloud  
+    ## Configuração ELK Cloud  
 
     Ambientes
 
-    dev
-    stg
-    prod
+    **dev**
+    **stg**
+    **prod**
 
     ## Doc ELK
     https://www.elastic.co/guide/en/beats/functionbeat/current/functionbeat-overview.html  
@@ -31,5 +31,7 @@
 <details>
     <summary>Backup Mongo Atlas Automation</summary>
     
+    ## Arquitetura do projeto
+    ![arquitetura do projeto](https://github.com/CondoLivre/infra-maintenance/blob/rvs/mongoBackup/mongoBackup/arquitetura/BackupMongoAtlasDB.png?raw=true)
 </details>
 
