@@ -59,6 +59,7 @@ resources:
       Type: AWS::SQS::Queue
       Properties:
         QueueName: mongo-backup
-        RedrivePolicy:
-          maxReceiveCount: 1
         VisibilityTimeout: 600
+        DelaySeconds: 600
+        MessageRetentionPeriod: 86400
+        ReceiveMessageWaitTimeSeconds: 20
