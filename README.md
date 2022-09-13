@@ -28,5 +28,5 @@ https://www.elastic.co/guide/en/elasticsearch/reference/8.2/query-filter-context
 ## Backup Mongo Atlas Automation
 
 ## Arquitetura do projeto
-![arquitetura do projeto](https://raw.githubusercontent.com/CondoLivre/infra-maintenance/main/mongoBackup/arquitetura/BackupMongoAtlasDB.png?token=GHSAT0AAAAAABWIW2NXOE76KFOZ7WLROMAKYY6Y4KQ)
+![arquitetura do projeto](https://raw.githubusercontent.com/CondoLivre/infra-maintenance/main/mongoBackup/arquitetura/BackupMongoAtlasDB.png?token=GHSAT0AAAAAABWIW2NWGFNUXT3JNUEK7WE6YY725XQ)
 
