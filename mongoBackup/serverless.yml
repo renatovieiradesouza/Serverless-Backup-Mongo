@@ -38,8 +38,8 @@ functions:
       USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
       PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
     layers:
-      - arn:aws:lambda:us-east-1:168984433384:layer:requests:1
-      - arn:aws:lambda:us-east-1:168984433384:layer:dotenv:1
+      - arn:aws:lambda:us-east-1:1682342333384:layer:requests:1
+      - arn:aws:lambda:us-east-1:1682342333384:layer:dotenv:1
   exportToS3:
     handler: src/move-snapshot.generateExport
     events:
