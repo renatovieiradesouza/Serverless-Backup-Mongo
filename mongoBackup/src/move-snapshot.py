@@ -31,7 +31,7 @@ def generateExport(event,context):
     "customData": [
       {
         "key": "exported by lambda",
-        "value": "lambda-prod-sa-east-1"
+        "value": "lambda-prod-us-east-1"
       }
     ]
   })
@@ -50,7 +50,7 @@ def generateExport(event,context):
     return 404
 
 def receive_message(queue):
-  sqs_client = boto3.client("sqs", region_name="sa-east-1")
+  sqs_client = boto3.client("sqs", region_name="us-east-1")
   response = sqs_client.receive_message(
       QueueUrl=queue,
       MaxNumberOfMessages=1,
@@ -71,7 +71,7 @@ def receive_message(queue):
       return id
   
 def delete_message(receipt_handle,queue):
-  sqs_client = boto3.client("sqs", region_name="sa-east-1")
+  sqs_client = boto3.client("sqs", region_name="us-east-1")
   response = sqs_client.delete_message(
       QueueUrl=queue,
       ReceiptHandle=receipt_handle,

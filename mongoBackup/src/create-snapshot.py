@@ -46,7 +46,7 @@ def generateBackup(event,context):
   return response.status_code
 
 def send_message(queue,keyMessage,bodyMessage):
-    sqs_client = boto3.client("sqs", region_name="sa-east-1")
+    sqs_client = boto3.client("sqs", region_name="us-east-1")
     message    = {keyMessage: bodyMessage}
 
     response = sqs_client.send_message(

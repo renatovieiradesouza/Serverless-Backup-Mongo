@@ -5,14 +5,14 @@ provider:
   name: aws
   runtime: python3.8
   memorySize: 128
-  region: ${opt:region, 'sa-east-1'}
+  region: ${opt:region, 'us-east-1'}
   timeout: 800
   vpc:
     securityGroupIds:
-      - sg-047559b8131f3b2cc
+      - sg-047559sdsdf3b2cc
     subnetIds:
-      - subnet-0ebd4ddfa425f0a3a
-      - subnet-0a78c2d6d0a979f4a
+      - subnet-0ebd4dsdsdsa3a
+      - subnet-0a7sddsd79f4a
   environment:
     SQS_QUEUE_URL: { Ref: MongoBackup }
   iamRoleStatements:
@@ -38,8 +38,8 @@ functions:
       USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
       PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
     layers:
-      - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
-      - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
+      - arn:aws:lambda:us-east-1:168984433384:layer:requests:1
+      - arn:aws:lambda:us-east-1:168984433384:layer:dotenv:1
   exportToS3:
     handler: src/move-snapshot.generateExport
     events:
@@ -48,8 +48,8 @@ functions:
       USERNAME: ${self:custom.environment.PUBLIC_KEY_BACKUP_MONGO_AWS}
       PASSWORD: ${self:custom.environment.PRIVATE_KEY_BACKUP_MONGO_AWS}
     layers:
-      - arn:aws:lambda:sa-east-1:168984433384:layer:requests:1
-      - arn:aws:lambda:sa-east-1:168984433384:layer:dotenv:1
+      - arn:aws:lambda:us-east-1:1682342333384:layer:requests:1
+      - arn:aws:lambda:us-east-1:1682342333384:layer:dotenv:1
       
 # Resources
 
