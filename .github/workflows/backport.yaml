@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   backport:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     name: Backport
     steps:
       - name: Backport
