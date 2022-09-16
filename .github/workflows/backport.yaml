@@ -1,16 +1,15 @@
 name: Backport
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
       - labeled
 
 jobs:
   backport:
-    runs-on: ubuntu-18.04
     name: Backport
+    runs-on: ubuntu-latest
     steps:
-      - name: Backport
-        uses: tibdex/backport@v1
+      - uses: tibdex/backport@v2
         with:
-          github_token: "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"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
