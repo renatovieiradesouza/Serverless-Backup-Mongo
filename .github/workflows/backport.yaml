@@ -4,8 +4,7 @@ on:
     types:
       - closed
       - labeled
-  push:
- 
+
 jobs:
   backport:
     runs-on: ubuntu-latest
