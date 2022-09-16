@@ -1,5 +1,8 @@
 name: Backport
-on: [push, pull_request]
+on:
+  pull_request_target:
+    types: ["labeled", "closed"]
+  push:
 
 jobs:
   backport:
