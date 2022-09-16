@@ -4,10 +4,10 @@ on:
     types:
       - closed
       - labeled
-   
+
 jobs:
   backport:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     name: Backport
     steps:
       - name: Backport
