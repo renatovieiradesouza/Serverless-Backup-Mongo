@@ -1,0 +1,12 @@
+name: Backport
+on: [push, pull_request]
+
+jobs:
+  backport:
+    runs-on: ubuntu-18.04
+    name: Backport
+    steps:
+      - name: Backport
+        uses: tibdex/backport@v1
+        with:
+          github_token: "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"
